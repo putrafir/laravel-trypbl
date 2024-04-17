@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        @extends('layouts.main')
+
+@section('container')
+<div
+class="w-full h-[26rem] min-h-75"
+style="background-image: url(img/pendaftar.png)"
+></div>
+<div class="w-full h-full bg-blueFist opacity bg-opacity-50"></div>
+
+
+<main class="-mt-[390px] ml-80 h-full max-h-screen">
+    @include('partials.pages')
+
+    <div class="container pt-6">
+        <div class="bg-white w-[68rem] shadow-lg rounded-xl">
+          <div class="flex font-semibold relative text-secondary gap-12 w-full py-4 px-6">
+            <button id="button" class="active">Data Diri Calon</button>
+            <button id="button">Data Orang Tua</button>
+            <button id="button">Asal Sekolah</button>
+            <button id="button">Berkas</button>
+            <div class="line absolute bg-blueFist rounded-full transition-all duration-300 ease-in-out"></div>
+          </div>
+          <hr class="pb-4 border-t-2 border-secondary opacity-25" />
+          <div class="contentBox px-6">
+            <form class="max-w-sm mt-6 pb-7" method="POST" enctype="multipart/form-data">
+              <!-- Data diri -->
+              <div class="content text-dark active">
+                <!-- <form class="max-w-sm mt-6 pb-7" method="POST" > -->
+                <div class="grid-cols-2 w-[60rem] grid gap-x-20">
+                  <div class="mb-5">
+                    <label for="nama" class="block mb-2 text-sm font-medium">Nama lengkap</label>
+                    <input id="nama" type="text" name="namaLengkap" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="gender" class="block mb-2 text-sm font-medium">Jenis kelamin</label>
+                    <input name="jenisKelamin" type="gender" id="gender" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    <div class="caret"></div>
+                  </div>
+                  <div class="mb-5">
+                    <label for="tanggalLahir" class="block mb-2 text-sm font-medium">Tanggal lahir</label>
+                    <input name="tanggalLahir" type="tanggalLahir" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="alamat" class="block mb-2 text-sm font-medium">Alamat</label>
+                    <input name="alamat" type="alamat" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="repeat-password" class="block mb-2 text-sm font-medium">Kota/kabupaten</label>
+                    <input name="kota" type="text" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="password" class="block mb-2 text-sm font-medium">NISN</label>
+                    <input name="nisn" type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="tempatLahir" class="block mb-2 text-sm font-medium">Tempat lahir</label>
+                    <input name="tempatLahir" type="tempatLahir" id="tempatLahir" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="agama" class="block mb-2 text-sm font-medium">Agama</label>
+                    <input name="agama" type="agama" id="agama" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="provinsi" class="block mb-2 text-sm font-medium">Provinsi</label>
+                    <input name="provinsi" type="provinsi" id="provinsi" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                  <div class="mb-5">
+                    <label for="telepon" class="block mb-2 text-sm font-medium">Telepon</label>
+                    <input name="telepon" type="telepon" id="telepon" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                  </div>
+                </div>
+            
+              </div>
+  
+              <!-- data ortu -->
+              <div class="content text-dark">
+                <div class="max-w-sm mt-6 pb-2">
+                  <div class="grid-cols-2 w-[60rem] grid gap-x-20">
+                    <div class="mb-5">
+                      <label for="nama" class="block mb-2 text-sm font-medium">Nama ayah</label>
+                      <input name="namaAyah" type="text" id="nama" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                    </div>
+                    <div class="mb-5">
+                      <label for="gender" class="block mb-2 text-sm font-medium">NIK ayah</label>
+                      <input name="nikAyah" type="text" id="gender" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="tanggalLahir" class="block mb-2 text-sm font-medium">Pekerjaan ayah</label>
+                      <input name="pekerjaanAyah" type="tanggalLahir" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="alamat" class="block mb-2 text-sm font-medium">Telepon ayah</label>
+                      <input name="teleponAyah" type="text" id="alamat" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="repeat-password" class="block mb-2 text-sm font-medium">Alamat ayah</label>
+                      <input name="alamatAyah" type="text" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="password" class="block mb-2 text-sm font-medium">Usia</label>
+                      <input name="usiaAyah" type="text " class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="tempatLahir" class="block mb-2 text-sm font-medium">Nama ibu</label>
+                      <input name="namaIbu" type="text" id="tempatLahir" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="agama" class="block mb-2 text-sm font-medium">NIK ibu</label>
+                      <input name="nikIbu" type="text" id="agama" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="provinsi" class="block mb-2 text-sm font-medium">Pekerjaan ibu</label>
+                      <input name="pekerjaanIbu" type="text" id="provinsi" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="telepon" class="block mb-2 text-sm font-medium">Telepon ibu</label>
+                      <input name="teleponIbu" type="text" id="telepon" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="provinsi" class="block mb-2 text-sm font-medium">Alamat ibu</label>
+                      <input name="alamatIbu" type="provinsi" id="provinsi" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="telepon" class="block mb-2 text-sm font-medium">Usia</label>
+                      <input name="usiaIbu" type="text" id="telepon" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+  
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+  
+              <!-- asal sekolah -->
+              <div class="content text-dark">
+                <div class="max-w-sm mt-6 pb-2">
+                  <div class="grid-cols-2 w-[60rem] grid gap-x-20">
+                    <div class="mb-5">
+                      <label for="nama" class="block mb-2 text-sm font-medium">Provinsi SMP</label>
+                      <input id="nama" name="provinsiSMP" type="text" autocomplete="off" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="gender" class="block mb-2 text-sm font-medium">Kota/kabupaten SMP</label>
+                      <input type="gender" id="gender" name="kotaSMP" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="tanggalLahir" class="block mb-2 text-sm font-medium">Asal SMP</label>
+                      <input type="tanggalLahir" id="repeat-password" name="asalSMP" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div class="mb-5">
+                      <label for="alamat" class="block mb-2 text-sm font-medium">Alamat SMP</label>
+                      <input type="text" id="alamat" name="alamatSMP" class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- berkas -->
+              <div class="content ml-4 text-dark">
+                <div class="pt-4">
+                  <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">IJAZAH/SKL SMP</label>
+                  <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" id="berkas" name="ijazah" class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file" />
+                  <div class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
+                    <label for="file_input" type="file" class="flex justify-center my-3 text-sm font-medium">Pilih
+                      File</label>
+                  </div>
+                </div>
+                <div class="pt-4">
+                  <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">PAS FOTO</label>
+                  <input type="file" accept=".jpg, .jpeg, .png" id="foto" name="pasFoto" class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file" />
+                  <div class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
+                    <label for="file_input" type="file" class="flex justify-center my-3 text-sm font-medium">Pilih
+                      File</label>
+                  </div>
+                </div>
+                <div class="pt-4">
+                  <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">KARTU KELUARGA</label>
+                  <input type="file" accept=".jpg, .jpeg, .png" id="foto" name="kartuKeluarga" class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file" />
+                  <div class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
+                    <label for="file_input" type="file" class="flex justify-center my-3 text-sm font-medium">Pilih
+                      File</label>
+                  </div>
+                </div>
+                <div class="pt-4">
+                  <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">AKTA KELAHIRAN</label>
+                  <input type="file" accept=".jpg, .jpeg, .png" id="foto" name="aktaKelahiran" class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file" />
+                  <div class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
+                    <label for="file_input" type="file" class="flex justify-center my-3 text-sm font-medium">Pilih
+                      File</label>
+                  </div>
+                </div>
+  
+  
+                <button name="upload" type="submit" class="block mt-6 mx-[40%] text-white bg-blueFist hover:bg-bluSecond focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                  Upload
+                </button>
+            </form>
+          </div>
+  
+  
+        
+        </div>
+        <!-- overlay untuk gambar besar -->
+        <div id="myModal" class="modal">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <img class="modal-content" src="" id="img01" alt="" />
+        </div>
+    </div>
+</main>
+      <script>
+        const tabs = document.querySelectorAll("#button");
+        const allContent = document.querySelectorAll(".content");
+    
+        tabs.forEach((tab, index) => {
+          tab.addEventListener("click", (e) => {
+            tabs.forEach((tab) => {
+              tab.classList.remove("active");
+            });
+    
+            tab.classList.add("active");
+    
+            var line = document.querySelector(".line");
+            line.style.width = e.target.offsetWidth + "px";
+            line.style.left = e.target.offsetLeft + "px";
+    
+            allContent.forEach((content) => {
+              content.classList.remove("active");
+            });
+            allContent[index].classList.add("active");
+          });
+        });
+    
+        // dropzone
+      </script>
+@endsection
+    </body>
+</html>
