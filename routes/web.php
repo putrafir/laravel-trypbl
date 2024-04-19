@@ -31,3 +31,9 @@ Route::get('/tambah', function () {
         'title' => 'Tambah Pendaftar'
     ]);
 });
+
+Route::get('/detail', function () {
+    return view(('detail'), [
+        'title' => 'Detail'
+    ]);
+});

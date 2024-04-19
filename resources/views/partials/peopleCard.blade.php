@@ -22,7 +22,7 @@
                 <h2 class="pl-[4rem] text-sm text-slate-400">mabar</h2>
               </div>
 
-              <a class="-mt-12" href="">
+              <a class="-mt-12" href="/detail">
                 <button name="lihat" type="submit" class="text-white h-7  bg-blueFist font-medium rounded-full text-[10px] px-5 ml-[946px] me-2 hover:bg-bluSecond">
                   Lihat
                 </button>

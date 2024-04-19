@@ -12,6 +12,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "caniuse-lite": "^1.0.30001611",
         "flowbite": "^2.3.0"
     }
 }
