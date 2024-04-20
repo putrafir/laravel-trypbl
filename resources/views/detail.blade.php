@@ -7,7 +7,6 @@
 
     </div>
 
-    <!-- Side samping -->
 
     <!-- konten -->
     <main class="-mt-[390px] ml-80 h-full max-h-screen">

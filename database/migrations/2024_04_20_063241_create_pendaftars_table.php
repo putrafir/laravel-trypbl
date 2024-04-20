@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('kota');
             $table->string('nisn');
             $table->string('tempatLahir');
+            $table->string('agama');
             $table->string('provinsi');
             $table->string('telepon');
             // berkas
