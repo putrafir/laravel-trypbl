@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PendaftarController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,11 +9,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/pendaftar', function () {
-    return view('pendaftar', [
-        "title" => "Pendaftar"
-    ]);
-});
+Route::get('/pendaftar', [PendaftarController::class, 'index']);
+
+Route::get('/pendaftars/{pendaftar:nisn}', [PendaftarController::class, 'show']);
 
 Route::get('/diterima', function () {
     return view('diterima', [
@@ -29,11 +28,5 @@ Route::get('/dress', function () {
 Route::get('/tambah', function () {
     return view('addPendaftar', [
         'title' => 'Tambah Pendaftar'
-    ]);
-});
-
-Route::get('/detail', function () {
-    return view(('detail'), [
-        'title' => 'Detail'
     ]);
 });
