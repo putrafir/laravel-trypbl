@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('teleponIbu');
             $table->string('alamatIbu');
             $table->string('usiaIbu');
-
             $table->timestamps();
         });
     }

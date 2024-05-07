@@ -49,7 +49,6 @@
             </div>
         </div>
 
-
         <div class="container pt-6">
             <div class="bg-white w-[68rem] shadow-lg rounded-xl">
                 <div class="category flex font-semibold relative text-secondary gap-12 w-full py-4 px-6">
@@ -153,77 +152,78 @@
                         <div class="max-w-sm mt-6 pb-2">
                             <div class="grid-cols-2 w-[60rem] grid gap-x-20">
                                 <div class="mb-5">
-                                    <label for="nama" class="block mb-2 text-sm font-medium">Nama ayah</label>
-                                    <input name="namaAyah" type="text" id="nama"
-                                        class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                                    <h5 for="nama" class="block mb-2 text-sm font-medium">Nama ayah</h5>
+                                    <h5 name="namaAyah" type="text" id="nama"
+                                        class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                        {{ $pendaftar->parentDb->namaAyah }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="gender" class="block mb-2 text-sm font-medium">NIK ayah</label>
-                                    <input name="nikAyah" type="text" id="gender"
+                                    <h5 for="gender" class="block mb-2 text-sm font-medium">NIK ayah</h5>
+                                    <h5 name="nikAyah" type="text" id="gender"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->nikAyah }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="tanggalLahir" class="block mb-2 text-sm font-medium">Pekerjaan
-                                        ayah</label>
-                                    <input name="pekerjaanAyah" type="tanggalLahir" id="repeat-password"
+                                    <h5 for="tanggalLahir" class="block mb-2 text-sm font-medium">Pekerjaan
+                                        ayah</h5>
+                                    <h5 name="pekerjaanAyah" type="tanggalLahir" id="repeat-password"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->pekerjaanAyah }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="alamat" class="block mb-2 text-sm font-medium">Telepon ayah</label>
-                                    <input name="teleponAyah" type="text" id="alamat"
+                                    <h5 for="alamat" class="block mb-2 text-sm font-medium">Telepon ayah</h5>
+                                    <h5 name="teleponAyah" type="text" id="alamat"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->teleponAyah }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="repeat-password" class="block mb-2 text-sm font-medium">Alamat
-                                        ayah</label>
-                                    <input name="alamatAyah" type="text" id="repeat-password"
+                                    <h5 for="repeat-password" class="block mb-2 text-sm font-medium">Alamat
+                                        ayah</h5>
+                                    <h5 name="alamatAyah" type="text" id="repeat-password"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->alamatAyah }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="password" class="block mb-2 text-sm font-medium">Usia</label>
-                                    <input name="usiaAyah" type="text "
+                                    <h5 for="password" class="block mb-2 text-sm font-medium">Usia</h5>
+                                    <h5 name="usiaAyah" type="text "
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->usiaAyah }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="tempatLahir" class="block mb-2 text-sm font-medium">Nama ibu</label>
-                                    <input name="namaIbu" type="text" id="tempatLahir"
+                                    <h5 for="tempatLahir" class="block mb-2 text-sm font-medium">Nama ibu</h5>
+                                    <h5 name="namaIbu" type="text" id="tempatLahir"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->namaIbu }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="agama" class="block mb-2 text-sm font-medium">NIK ibu</label>
-                                    <input name="nikIbu" type="text" id="agama"
+                                    <h5 for="agama" class="block mb-2 text-sm font-medium">NIK ibu</h5>
+                                    <h5 name="nikIbu" type="text" id="agama"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->nikIbu }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="provinsi" class="block mb-2 text-sm font-medium">Pekerjaan ibu</label>
-                                    <input name="pekerjaanIbu" type="text" id="provinsi"
+                                    <h5 for="provinsi" class="block mb-2 text-sm font-medium">Pekerjaan ibu</h5>
+                                    <h5 name="pekerjaanIbu" type="text" id="provinsi"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->pekerjaanIbu }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="telepon" class="block mb-2 text-sm font-medium">Telepon ibu</label>
-                                    <input name="teleponIbu" type="text" id="telepon"
+                                    <h5 for="telepon" class="block mb-2 text-sm font-medium">Telepon ibu</h5>
+                                    <h5 name="teleponIbu" type="text" id="telepon"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->teleponIbu }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="provinsi" class="block mb-2 text-sm font-medium">Alamat ibu</label>
-                                    <input name="alamatIbu" type="provinsi" id="provinsi"
+                                    <h5 for="provinsi" class="block mb-2 text-sm font-medium">Alamat ibu</h5>
+                                    <h5 name="alamatIbu" type="provinsi" id="provinsi"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->alamatIbu }} </h5>
                                 </div>
                                 <div class="mb-5">
-                                    <label for="telepon" class="block mb-2 text-sm font-medium">Usia</label>
-                                    <input name="usiaIbu" type="text" id="telepon"
+                                    <h5 for="telepon" class="block mb-2 text-sm font-medium">Usia</h5>
+                                    <h5 name="usiaIbu" type="text" id="telepon"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->parentDb->usiaIbu }} </h5>
 
                                 </div>
 
@@ -304,8 +304,6 @@
                 </div>
             </div>
         </div>
-
-
     </main>
 
     <script>

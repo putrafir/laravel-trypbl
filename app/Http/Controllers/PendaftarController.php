@@ -18,12 +18,11 @@ class PendaftarController extends Controller
             'pendaftars' => Pendaftar::latest()->get()
         ]);
     }
-    public function show(Pendaftar $pendaftar)
+    public function show($nisn)
     {
-        return view('detail', [
-            'title' => 'Detail',
-            'pendaftar' => $pendaftar
-        ]);
+        $pendaftar = Pendaftar::with('parentDb')->where('nisn', $nisn)->first();
+        $title = 'Detail';
+        return view('detail', compact('pendaftar', 'title'));
     }
 
     /**

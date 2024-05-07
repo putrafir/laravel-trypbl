@@ -15,7 +15,6 @@
                 class="text-white h-7  bg-blueFist font-medium rounded-full text-[10px] px-5 ml-[946px] me-2 hover:bg-bluSecond">
                 Lihat
             </button>
-
         </a>
     </div>
 </div>

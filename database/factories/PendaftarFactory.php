@@ -28,7 +28,8 @@ class PendaftarFactory extends Factory
             'agama' => 'islam',
             'provinsi' => fake()->state(),
             'telepon' => fake()->phoneNumber(),
-            'pasFoto' => fake()->imageUrl(360, 360, 'animals', true)
+            'pasFoto' => fake()->imageUrl(360, 360, 'animals', true),
+            'parent_dbs_id' => fake()->unique()->numberBetween(1, 5)
         ];
     }
 }

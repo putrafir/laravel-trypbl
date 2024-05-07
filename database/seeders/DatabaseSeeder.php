@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ParentDb;
 use App\Models\Pendaftar;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,8 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Pendaftar::factory(10)->create();
-
+        ParentDb::factory(5)->create();
+        Pendaftar::factory(5)->create();
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
