@@ -230,34 +230,35 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- Asal Sekolah -->
                     <div class="content text-dark" id="asalSekolah">
                         <div class="max-w-sm mt-6 pb-2">
                             <div class="grid-cols-2 w-[60rem] grid gap-x-20">
                                 <div class="mb-5">
                                     <label for="nama" class="block mb-2 text-sm font-medium">Provinsi SMP</label>
-                                    <input id="nama" name="provinsiSMP" type="text" autocomplete="off"
+                                    <h5 id="nama" name="provinsiSMP" type="text" autocomplete="off"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->asalSekolah->provinsiSMP }}</h5>
                                 </div>
                                 <div class="mb-5">
                                     <label for="gender" class="block mb-2 text-sm font-medium">Kota/kabupaten
                                         SMP</label>
-                                    <input type="gender" id="gender" name="kotaSMP"
+                                    <h5 type="gender" id="gender" name="kotaSMP"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->asalSekolah->kotaSMP }}</h5>
                                 </div>
                                 <div class="mb-5">
                                     <label for="tanggalLahir" class="block mb-2 text-sm font-medium">Asal SMP</label>
-                                    <input type="tanggalLahir" id="repeat-password" name="asalSMP"
+                                    <h5 type="tanggalLahir" id="repeat-password" name="asalSMP"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->asalSekolah->asalSMP }}</h5>
                                 </div>
                                 <div class="mb-5">
                                     <label for="alamat" class="block mb-2 text-sm font-medium">Alamat SMP</label>
-                                    <input type="text" id="alamat" name="alamatSMP"
+                                    <h5 type="text" id="alamat" name="alamatSMP"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
+                                        required>{{ $pendaftar->asalSekolah->alamatSMP }}</h5>
                                 </div>
                             </div>
                         </div>

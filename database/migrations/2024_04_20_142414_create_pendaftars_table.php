@@ -25,8 +25,10 @@ return new class extends Migration
             $table->string('provinsi');
             $table->string('telepon');
             $table->unsignedBigInteger('parent_dbs_id');
-            // berkas
             $table->foreign('parent_dbs_id')->references('id')->on('parent_dbs');
+            $table->unsignedBigInteger('asalSekolah_id');
+            $table->foreign('asalSekolah_id')->references('id')->on('asal_sekolahs');
+            // berkas
             $table->text('pasFoto');
             $table->timestamps();
         });

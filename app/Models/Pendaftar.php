@@ -9,11 +9,17 @@ class Pendaftar extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'nisn';
+
 
     public function parentDb()
     {
         // return $this->belongsTo(ParentDb::class,)
         return $this->belongsTo(ParentDb::class, 'parent_dbs_id', 'id');
+    }
+
+    public function asalSekolah()
+    {
+        // return $this->belongsTo(ParentDb::class,)
+        return $this->belongsTo(AsalSekolah::class, 'asalSekolah_id', 'id');
     }
 }
