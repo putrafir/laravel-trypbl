@@ -22,4 +22,9 @@ class Pendaftar extends Model
         // return $this->belongsTo(ParentDb::class,)
         return $this->belongsTo(AsalSekolah::class, 'asalSekolah_id', 'id');
     }
+    public function berkas()
+    {
+        // return $this->belongsTo(ParentDb::class,)
+        return $this->belongsTo(Berkas::class, 'berkas_id', 'id');
+    }
 }

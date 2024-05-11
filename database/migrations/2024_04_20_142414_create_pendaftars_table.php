@@ -25,11 +25,12 @@ return new class extends Migration
             $table->string('provinsi');
             $table->string('telepon');
             $table->unsignedBigInteger('parent_dbs_id');
-            $table->foreign('parent_dbs_id')->references('id')->on('parent_dbs');
             $table->unsignedBigInteger('asalSekolah_id');
+            $table->unsignedBigInteger('berkas_id');
+            $table->foreign('parent_dbs_id')->references('id')->on('parent_dbs');
             $table->foreign('asalSekolah_id')->references('id')->on('asal_sekolahs');
+            $table->foreign('berkas_id')->references('id')->on('berkas');
             // berkas
-            $table->text('pasFoto');
             $table->timestamps();
         });
     }
