@@ -15,7 +15,7 @@ class PendaftarController extends Controller
     {
         return view('pendaftar', [
             "title" => "Pendaftar",
-            'pendaftars' => Pendaftar::latest()->get()
+            'pendaftars' => Pendaftar::latest()->filter(request(['search']))->get()
         ]);
     }
     public function show($nisn)

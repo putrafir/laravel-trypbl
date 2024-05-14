@@ -9,6 +9,13 @@ class Pendaftar extends Model
 {
     use HasFactory;
 
+    protected $with = ['parentDb', 'asalSekolah'];
+
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, fn ($query, $search) => $query->where('namaLengkap', 'like', '%' . $search . '%')->orWhere('nisn', 'like', '%' . $search . '%'));
+    }
 
 
     public function parentDb()

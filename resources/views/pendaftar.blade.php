@@ -22,10 +22,14 @@
                     <li class="pl-[8rem]">ALAMAT</li>
                 </ol>
                 <hr class="mx-6 mt-5" />
+                @if ($pendaftars->count())
+                    @foreach ($pendaftars as $pendaftar)
+                        @include('partials.peopleCard')
+                    @endforeach
+                @else
+                    <p>Pendaftar tidak ditemukan.</p>
+                @endif
 
-                @foreach ($pendaftars as $pendaftar)
-                    @include('partials.peopleCard')
-                @endforeach
             </div>
             <div class="mb-4"></div>
 
