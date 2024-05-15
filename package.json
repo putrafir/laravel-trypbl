@@ -1,0 +1,19 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "npx tailwindcss -i ./public/src/input.css -o ./public/css/output.css --watch",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0",
+        "prettier": "3.2.5",
+        "tailwindcss": "^3.4.3",
+        "vite": "^5.0"
+    },
+    "dependencies": {
+        "caniuse-lite": "^1.0.30001611",
+        "flowbite": "^2.3.0"
+    }
+}
