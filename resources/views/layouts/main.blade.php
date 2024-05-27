@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-monserat">
-    s
+
     @include('partials.navbar')
     @yield('container')
 
