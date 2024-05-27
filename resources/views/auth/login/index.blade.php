@@ -1,4 +1,5 @@
-@extends('layouts.log')
+@extends('auth.layouts.main')
+
 
 @section('container')
     <div class="w-full h-[26rem] min-h-75 bg-blueFist">
@@ -37,25 +38,49 @@
                                 </div>
                             </div>
                         @endif
+                        @if (@session('loginError'))
+                            <div class="flex items-center p-4 mt-2 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+                                role="alert">
+                                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <span class="sr-only">Info</span>
+                                <div>
+                                    {{ session('loginError') }}
+                                </div>
+                            </div>
+                        @endif
+
 
                     </div>
                     <!-- Modal body -->
                     <div class="p-4   md:p-5">
-                        <form class="space-y-8" action="#">
+                        <form class="space-y-8" action="/" method="POST">
+                            @csrf
                             <div>
                                 <label for="email"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                 <input type="email" name="email" id="email"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    class="@error('email') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     placeholder="name@company.com" required />
+                                @error('email')
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span
+                                            class="font-medium">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div>
                                 <label for="password"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                                     password</label>
                                 <input type="password" name="password" id="password" placeholder="••••••••"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    class="@error('password') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     required />
+                                @error('password')
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span
+                                            class="font-medium">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <button type="submit"

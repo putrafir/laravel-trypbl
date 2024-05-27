@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-monserat">
-
+    s
     @include('partials.navbar')
     @yield('container')
 
@@ -30,7 +30,12 @@
     <script src="{{ asset('js/flowbite.min.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
-
+    <script>
+        document.getElementById('dropdownDefaultButton').addEventListener('click', function() {
+            var dropdown = document.getElementById('dropdown');
+            dropdown.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>

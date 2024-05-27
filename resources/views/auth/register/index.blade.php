@@ -1,4 +1,4 @@
-@extends('layouts.log')
+@extends('auth.layouts.main')
 
 @section('container')
     <div class="w-full h-[26rem] min-h-75 bg-blueFist">
