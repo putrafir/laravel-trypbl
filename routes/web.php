@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddPendaftarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PendaftarController;
@@ -31,8 +32,4 @@ Route::get('/dress', function () {
     ]);
 });
 
-Route::get('/tambah', function () {
-    return view('addPendaftar', [
-        'title' => 'Tambah Pendaftar'
-    ]);
-});
+Route::resource('/addPendaftar', AddPendaftarController::class)->middleware('auth');
