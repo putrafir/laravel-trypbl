@@ -31,5 +31,4 @@ Route::get('/dress', function () {
         'title' => 'Ukuran Baju'
     ]);
 });
-
 Route::resource('/addPendaftar', AddPendaftarController::class)->middleware('auth');
