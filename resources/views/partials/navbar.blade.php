@@ -1,106 +1,5 @@
 <div class="container">
-    {{-- <aside
-        class="fixed top-5 bottom-5 lg:left-5 p-2 w-[270px] overflow-y-auto text-center bg-white rounded-3xl shadow-xl">
-        <div class="text-dark text-xl pt-4">
-            <div class="mt-1 flex justify-center items-center py-3">
-                <img src="img/logo.jpg" alt="logo" class="w-8 mr-2" />
-                <h1 class="font-semibold text-base">Admin Panel</h1>
-            </div>
 
-            <hr class="my-3 text-gray-600 mx-5" />
-        </div>
-
-        <!-- dashboard -->
-        <a href="/dashboard">
-            <div class="p-4 mt-3 flex items-center rounded-lg px-8 duration-300 cursor-pointe bg-opacity-35 ">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M2.75 6.75C2.75 4.54086 4.54086 2.75 6.75 2.75H17.25C19.4591 2.75 21.25 4.54086 21.25 6.75V13.75C21.25 15.9591 19.4591 17.75 17.25 17.75H6.75C4.54086 17.75 2.75 15.9591 2.75 13.75V6.75Z"
-                        stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M7 21.25H17" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M2.75 13.25H21.25" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M10 17.75L9 21.25M14 17.75L15 21.25" stroke="#1068FF" stroke-width="1.5"
-                        stroke-linecap="round" />
-                </svg>
-                <span class=" ml-5 text-slate-600 text-base text-sm">Dashboard</span>
-            </div>
-        </a>
-        <!-- lihat calon -->
-        <a href="/pendaftar">
-            <div class="p-4 flex items-center rounded-lg px-8 duration-300 cursor-pointe">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M9.25 21.25C7.04086 21.25 5.25 19.4591 5.25 17.25V6.75C5.25 4.54086 7.04086 2.75 9.25 2.75H16.25C18.4591 2.75 20.25 4.54086 20.25 6.75V17.25C20.25 19.4591 18.4591 21.25 16.25 21.25H9.25Z"
-                        stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <circle cx="12.75" cy="9.5" r="2" stroke="#1068FF" stroke-width="1.5"
-                        stroke-linecap="round" />
-                    <path
-                        d="M9.25 16.5C9.25 14.8431 10.5931 13.5 12.25 13.5H13.25C14.9069 13.5 16.25 14.8431 16.25 16.5"
-                        stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M3.75 8H6.75" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M3.75 12H6.75" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M3.75 16H6.75" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
-                <span class=" ml-5 text-slate-600 text-base text-sm">Pendaftar</span>
-            </div>
-        </a>
-
-        <!-- lihat calon -->
-        <a href="/diterima">
-            <div class="p-4 flex items-center rounded-lg px-8 duration-300 cursor-pointer text-white">
-                <svg width="24" height="24" class="ml-[0.5px]" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M2.75 8.5C2.75 6.29086 4.54086 4.5 6.75 4.5H17.25C19.4591 4.5 21.25 6.29086 21.25 8.5V15.5C21.25 17.7091 19.4591 19.5 17.25 19.5H6.75C4.54086 19.5 2.75 17.7091 2.75 15.5V8.5Z"
-                        stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <circle cx="9.5" cy="9.5" r="2" stroke="#1068FF" stroke-width="1.5"
-                        stroke-linecap="round" />
-                    <path d="M6 16.5C6 14.8431 7.34315 13.5 9 13.5H10C11.6569 13.5 13 14.8431 13 16.5" stroke="#1068FF"
-                        stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M15 10.5H18" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M15 13.5H18" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
-                <span class="text-gray-600 ml-[19px] text-base text-sm">Diterima</span>
-            </div>
-        </a>
-
-        <a href="/dress">
-            <div class="p-4 flex items-center rounded-lg px-8 duration-300 cursor-pointer text-white">
-                <svg width="20" height="22" class="ml-[3px]" viewBox="0 0 20 22" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M12.2011 1.83334C12.2011 2.47636 11.9689 3.09304 11.5556 3.54772C11.1422 4.0024 10.5816 4.25783 9.99705 4.25783C9.41249 4.25783 8.85188 4.0024 8.43853 3.54772C8.02518 3.09304 7.79297 2.47636 7.79297 1.83334"
-                        stroke="#1068FF" stroke-width="1.32554" stroke-miterlimit="10" />
-                    <path
-                        d="M15.3311 16.103H17.3502C17.5008 16.1034 17.6461 16.0412 17.7566 15.9287C17.8672 15.8161 17.935 15.6617 17.9463 15.4965L18.3327 9.86746L16.879 4.47683C16.8432 4.32907 16.7594 4.20089 16.6434 4.11659L12.8054 1.94738C12.7168 1.87846 12.6122 1.83889 12.5038 1.83334H7.50666C7.39708 1.83371 7.28993 1.86881 7.19801 1.93442L3.36237 4.10363C3.2467 4.18829 3.16296 4.31633 3.12677 4.46387L1.66602 9.86746L2.06183 15.5069C2.07314 15.6721 2.14091 15.8265 2.25149 15.939C2.36207 16.0515 2.50728 16.1138 2.65791 16.1133H4.69589"
-                        stroke="#1068FF" stroke-width="1.32554" stroke-miterlimit="10" />
-                    <path
-                        d="M4.68164 9.34912V17.1422C4.68081 17.6716 4.86413 18.1813 5.19399 18.5668C5.52386 18.9523 5.97529 19.1844 6.45575 19.2155C7.59008 19.4427 8.74026 19.5607 9.89322 19.568H10.1076C11.2606 19.5608 12.4108 19.4428 13.5451 19.2155V19.2155C14.026 19.1851 14.478 18.9533 14.8083 18.5677C15.1387 18.1821 15.3223 17.672 15.3215 17.1422V9.34912"
-                        stroke="#1068FF" stroke-width="1.32554" stroke-miterlimit="10" stroke-linecap="round" />
-                </svg>
-                <span class="text-gray-600 ml-[24px] text-base text-sm">Ukuran baju</span>
-            </div>
-        </a>
-
-        <!-- tambah pendaftar -->
-        <a href="/addPendaftar">
-            <div class="p-4 flex items-center rounded-lg px-8 duration-300 cursor-pointer text-white">
-                <svg width="24" height="24" class="ml-[1px]" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M2.75 6.75C2.75 4.54086 4.54086 2.75 6.75 2.75H17.25C19.4591 2.75 21.25 4.54086 21.25 6.75V13.75C21.25 15.9591 19.4591 17.75 17.25 17.75H6.75C4.54086 17.75 2.75 15.9591 2.75 13.75V6.75Z"
-                        stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M7 21.25H17" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M2.75 13.25H21.25" stroke="#1068FF" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M10 17.75L9 21.25M14 17.75L15 21.25" stroke="#1068FF" stroke-width="1.5"
-                        stroke-linecap="round" />
-                </svg>
-                <span class="text-gray-600 ml-5 text-base text-sm">Tambah pendaftar</span>
-            </div>
-        </a>
-    </aside> --}}
     <aside id="default-sidebar"
         class="fixed top-5 bottom-5 left-5 z-40  w-[270px]  transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
@@ -119,65 +18,86 @@
                 <div class="px-2">
                     <li>
                         <a href="/dashboard"
-                            class="flex items-center p-4 {{ Request::is('dashboard') ? ' bg-gray-100 text-blue-500' : '' }}  mt-3 text-slate-600 text-sm rounded-lg hover:bg-gray-100 group">
-                            <svg class="flex-shrink-0 w-5 h-5 {{ Request::is('dashboard') ? 'text-blue-500' : '' }}  text-slate-600 transition duration-75  "
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 18 18">
-                                <path
-                                    d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                            </svg>
-                            <span class="flex-1 ms-6 whitespace-nowrap">Dashboard</span>
+                            class="flex items-center px-4 py-3  {{ Request::is('dashboard') ? ' bg-gray-100 text-blue-500' : 'text-slate-600' }}  mt-3  rounded-lg hover:bg-gray-100 group">
 
+                            <svg class="{{ Request::is('dashboard') ? 'text-blue-500' : ' text-slate-600' }} transition duration-75  "
+                                width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path
+                                    d="M5 3C3.89543 3 3 3.89543 3 5V7C3 8.10457 3.89543 9 5 9H9C10.1046 9 11 8.10457 11 7V5C11 3.89543 10.1046 3 9 3H5Z" />
+                                <path
+                                    d="M19 21C20.1046 21 21 20.1046 21 19V17C21 15.8954 20.1046 15 19 15H15C13.8954 15 13 15.8954 13 17V19C13 20.1046 13.8954 21 15 21H19Z" />
+                                <path
+                                    d="M5 11C3.89543 11 3 11.8954 3 13V19C3 20.1046 3.89543 21 5 21H9C10.1046 21 11 20.1046 11 19V13C11 11.8954 10.1046 11 9 11H5Z" />
+                                <path
+                                    d="M19 13C20.1046 13 21 12.1046 21 11V5C21 3.89543 20.1046 3 19 3H15C13.8954 3 13 3.89543 13 5V11C13 12.1046 13.8954 13 15 13L19 13Z" />
+                            </svg>
+
+                            <span class="flex-1 ms-6 whitespace-nowrap">Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="/pendaftar"
-                            class="flex items-center p-4 {{ Request::is('pendaftar') ? ' bg-gray-100 text-blue-500' : '' }}  text-slate-600 text-sm rounded-lg  hover:bg-gray-100  group">
-                            <svg class="flex-shrink-0 w-5 h-5 {{ Request::is('pendaftar') ? 'text-blue-500' : '' }} text-slate-600 transition duration-75  "
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path
-                                    d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
+                            class="flex items-center  px-4 py-3 {{ Request::is('pendaftar') ? 'bg-gray-100 text-blue-500' : 'text-slate-600' }}   rounded-lg  hover:bg-gray-100  group">
+
+                            <svg class="{{ Request::is('pendaftar') ? 'text-blue-500' : 'text-slate-600' }}   transition duration-75  "
+                                width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 6C10.067 6 8.5 7.567 8.5 9.5C8.5 11.433 10.067 13 12 13C13.933 13 15.5 11.433 15.5 9.5C15.5 7.567 13.933 6 12 6ZM10.5 14C8.29086 14 6.5 15.7909 6.5 18C6.5 19.1046 7.39543 20 8.5 20H15.5C16.6046 20 17.5 19.1046 17.5 18C17.5 15.7909 15.7091 14 13.5 14H10.5Z" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M17.3193 10.9036C17.4372 10.4555 17.5 9.98509 17.5 9.5C17.5 7.37184 16.2913 5.52599 14.5229 4.61149C15.0855 4.22572 15.7664 4 16.5 4C18.433 4 20 5.567 20 7.5C20 9.15086 18.857 10.5348 17.3193 10.9036ZM19.5 18H20C21.1046 18 22 17.1046 22 16C22 13.7909 20.2091 12 18 12H16.9003C16.7636 12.2674 16.6056 12.5222 16.4286 12.7621C18.2613 13.789 19.5 15.7498 19.5 18Z" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M4 7.5C4 5.567 5.567 4 7.5 4C8.23363 4 8.91455 4.22572 9.47708 4.61149C7.70871 5.52599 6.5 7.37184 6.5 9.5C6.5 9.98509 6.5628 10.4555 6.68071 10.9036C5.14295 10.5348 4 9.15086 4 7.5ZM7.09971 12H6C3.79086 12 2 13.7909 2 16C2 17.1046 2.89543 18 4 18H4.5C4.5 15.7498 5.73868 13.789 7.57136 12.7621C7.39438 12.5222 7.23642 12.2674 7.09971 12Z" />
                             </svg>
                             <span class="flex-1 ms-6 whitespace-nowrap">Pendaftar</span>
 
                         </a>
                     </li>
                     <li>
-                        <a href="/diterima"
-                            class="flex items-center p-4{{ Request::is('diterima') ? ' bg-gray-100 text-blue-500' : '' }}  text-slate-600 rounded-lg  hover:bg-gray-100  group">
-                            <svg class="flex-shrink-0 w-5 {{ Request::is('diterima') ? 'text-blue-500' : '' }} h-5 text-slate-600 transition duration-75 "
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 20 18">
-                                <path
-                                    d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                        <a href="{{ route('diterima') }}"
+                            class="flex items-center px-4 py-3  {{ Request::is('accepted/*') ? 'bg-gray-100 text-blue-500' : 'text-slate-600 ' }} rounded-lg  hover:bg-gray-100  group">
+
+                            <svg class="{{ Request::is('accepted/*') ? 'text-blue-500' : 'text-slate-600' }}  transition duration-75 "
+                                width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7 2C5.89543 2 5 2.89543 5 4V5C4.44772 5 4 5.44772 4 6C4 6.55228 4.44772 7 5 7V8C4.44772 8 4 8.44772 4 9C4 9.55228 4.44772 10 5 10V11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V14C4.44772 14 4 14.4477 4 15C4 15.5523 4.44772 16 5 16V17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19V20C5 21.1046 5.89543 22 7 22H18C19.1046 22 20 21.1046 20 20V4C20 2.89543 19.1046 2 18 2H7ZM10 10C10 8.34315 11.3431 7 13 7C14.6569 7 16 8.34315 16 10C16 11.6569 14.6569 13 13 13C11.3431 13 10 11.6569 10 10ZM9 17C9 15.3431 10.3431 14 12 14H14C15.6569 14 17 15.3431 17 17C17 17.5523 16.5523 18 16 18H10C9.44772 18 9 17.5523 9 17Z" />
                             </svg>
+
                             <span class="flex-1 ms-6 whitespace-nowrap">Diterima</span>
                         </a>
                     </li>
+
                     <li>
-                        <a href="/dress"
-                            class="flex items-center p-4 {{ Request::is('dress') ? ' bg-gray-100 text-blue-500' : '' }}   text-slate-600 rounded-lg  hover:bg-gray-100  group">
-                            <svg class="flex-shrink-0 w-5 {{ Request::is('dress') ? 'text-blue-500' : '' }}  h-5 text-slate-600 transition duration-75 "
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 18 20">
-                                <path
-                                    d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
+                        <a href="/addPendaftar"
+                            class="flex items-center px-4 py-3  {{ Request::is('addPendaftar') ? ' bg-gray-100 text-blue-500' : 'text-slate-600' }}   rounded-lg  hover:bg-gray-100  group">
+
+                            <svg class=" {{ Request::is('addPendaftar') ? 'text-blue-500' : 'text-slate-600' }}  transition duration-75 "
+                                width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M9 4C6.79086 4 5 5.79086 5 8C5 10.2091 6.79086 12 9 12C11.2091 12 13 10.2091 13 8C13 5.79086 11.2091 4 9 4ZM7 13C4.79086 13 3 14.7909 3 17V18C3 19.1046 3.89543 20 5 20H13C14.1046 20 15 19.1046 15 18V17C15 14.7909 13.2091 13 11 13H7ZM15 12C15 11.4477 15.4477 11 16 11H17V10C17 9.44772 17.4477 9 18 9C18.5523 9 19 9.44772 19 10V11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H19V14C19 14.5523 18.5523 15 18 15C17.4477 15 17 14.5523 17 14V13H16C15.4477 13 15 12.5523 15 12Z" />
                             </svg>
-                            <span class="flex-1 ms-6 whitespace-nowrap">Ukuran baju</span>
+
+                            <span class="flex-1 ms-6 whitespace-nowrap">Tambah Pendaftar</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/addPendaftar"
-                            class="flex items-center p-4 {{ Request::is('addPendaftar') ? ' bg-gray-100 text-blue-500' : '' }}  text-slate-600 rounded-lg  hover:bg-gray-100  group">
-                            <svg class="flex-shrink-0 w-5 {{ Request::is('addPendaftar') ? 'text-blue-500' : '' }} h-5 text-slate-600 transition duration-75 "
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 18 20">
-                                <path
-                                    d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
-                            </svg>
-                            <span class="flex-1 ms-6 whitespace-nowrap">Tambah pendaftar</span>
-                        </a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <div
+                                class="flex items-center px-4 py-3  text-slate-600  rounded-lg  hover:bg-gray-100  group">
+                                <button class="flex">
+
+                                    <svg class=" ml-1 text-slate-600" width="20" height="24"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.37905 1.66859L7.06858 1.08881C10.2892 0.582717 11.8995 0.329671 12.9497 1.22779C14 2.12591 14 3.75596 14 7.01607V9.99959H8.08062L10.7809 6.62428L9.21913 5.37489L5.21913 10.3749L4.71938 10.9996L5.21913 11.6243L9.21913 16.6243L10.7809 15.3749L8.08062 11.9996H14V14.9831C14 18.2432 14 19.8733 12.9497 20.7714C11.8995 21.6695 10.2892 21.4165 7.06857 20.9104L3.37905 20.3306C1.76632 20.0771 0.95995 19.9504 0.479975 19.3891C0 18.8279 0 18.0116 0 16.3791V5.6201C0 3.98758 0 3.17132 0.479975 2.61003C0.95995 2.04874 1.76632 1.92202 3.37905 1.66859Z" />
+                                    </svg>
+
+                                    <span class="flex-1 ms-6 whitespace-nowrap">Log Out</span>
+                                </button>
+                            </div>
+
+                        </form>
+
                     </li>
 
 

@@ -1223,14 +1223,14 @@ input:checked + .toggle-bg {
   margin-right: 1.5rem;
 }
 
+.mx-\[25\%\] {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 .mx-\[3\.2rem\] {
   margin-left: 3.2rem;
   margin-right: 3.2rem;
-}
-
-.mx-\[30\%\] {
-  margin-left: 30%;
-  margin-right: 30%;
 }
 
 .mx-\[40\%\] {
@@ -1256,11 +1256,6 @@ input:checked + .toggle-bg {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-
-.mx-\[25\%\] {
-  margin-left: 25%;
-  margin-right: 25%;
 }
 
 .-ml-10 {
@@ -1339,6 +1334,10 @@ input:checked + .toggle-bg {
   margin-inline-end: 0.75rem;
 }
 
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -1355,32 +1354,12 @@ input:checked + .toggle-bg {
   margin-left: 20rem;
 }
 
-.ml-\[0\.5px\] {
-  margin-left: 0.5px;
-}
-
 .ml-\[15rem\] {
   margin-left: 15rem;
 }
 
-.ml-\[19px\] {
-  margin-left: 19px;
-}
-
-.ml-\[1px\] {
-  margin-left: 1px;
-}
-
 .ml-\[21\.5px\] {
   margin-left: 21.5px;
-}
-
-.ml-\[24px\] {
-  margin-left: 24px;
-}
-
-.ml-\[3px\] {
-  margin-left: 3px;
 }
 
 .ml-\[946px\] {
@@ -1425,10 +1404,6 @@ input:checked + .toggle-bg {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-5 {
-  margin-top: 1.25rem;
 }
 
 .mt-6 {
@@ -1526,10 +1501,6 @@ input:checked + .toggle-bg {
   height: 10rem;
 }
 
-.h-5 {
-  height: 1.25rem;
-}
-
 .h-52 {
   height: 13rem;
 }
@@ -1590,10 +1561,6 @@ input:checked + .toggle-bg {
   height: 70px;
 }
 
-.h-\[726px\] {
-  height: 726px;
-}
-
 .h-\[calc\(100\%-1rem\)\] {
   height: calc(100% - 1rem);
 }
@@ -1644,10 +1611,6 @@ input:checked + .toggle-bg {
 
 .w-44 {
   width: 11rem;
-}
-
-.w-5 {
-  width: 1.25rem;
 }
 
 .w-64 {
@@ -1838,10 +1801,6 @@ input:checked + .toggle-bg {
 
 .flex-wrap {
   flex-wrap: wrap;
-}
-
-.content-center {
-  align-content: center;
 }
 
 .items-start {
@@ -2161,10 +2120,6 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 0.1;
 }
 
-.bg-opacity-35 {
-  --tw-bg-opacity: 0.35;
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2234,10 +2189,6 @@ input:checked + .toggle-bg {
   padding: 1.5rem;
 }
 
-.p-7 {
-  padding: 1.75rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2271,11 +2222,6 @@ input:checked + .toggle-bg {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 .px-\[13px\] {
@@ -2374,6 +2320,10 @@ input:checked + .toggle-bg {
   padding-left: 5rem;
 }
 
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
 .pl-4 {
   padding-left: 1rem;
 }
@@ -2386,16 +2336,8 @@ input:checked + .toggle-bg {
   padding-left: 15rem;
 }
 
-.pl-\[10rem\] {
-  padding-left: 10rem;
-}
-
 .pl-\[116px\] {
   padding-left: 116px;
-}
-
-.pl-\[12rem\] {
-  padding-left: 12rem;
 }
 
 .pl-\[1rem\] {
@@ -2416,14 +2358,6 @@ input:checked + .toggle-bg {
 
 .pl-\[65rem\] {
   padding-left: 65rem;
-}
-
-.pl-\[88px\] {
-  padding-left: 88px;
-}
-
-.pl-\[8rem\] {
-  padding-left: 8rem;
 }
 
 .pr-28 {
@@ -2587,14 +2521,14 @@ input:checked + .toggle-bg {
   color: rgb(0 0 0 / 0.5);
 }
 
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(63 131 248 / var(--tw-text-opacity));
+}
+
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
-}
-
-.text-blueFist {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 .text-dark {
@@ -2680,16 +2614,6 @@ input:checked + .toggle-bg {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(240 82 82 / var(--tw-text-opacity));
-}
-
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(63 131 248 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -3029,16 +2953,6 @@ input:checked + .toggle-bg {
   --tw-ring-color: rgb(255 45 32 / var(--tw-ring-opacity));
 }
 
-.group:hover .group-hover\:text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-
-.group:hover .group-hover\:text-slate-600 {
-  --tw-text-opacity: 1;
-  color: rgb(71 85 105 / var(--tw-text-opacity));
-}
-
 .dark\:block:is(.dark *) {
   display: block;
 }
@@ -3350,10 +3264,6 @@ input:checked + .toggle-bg {
 }
 
 @media (min-width: 1024px) {
-  .lg\:left-5 {
-    left: 1.25rem;
-  }
-
   .lg\:col-start-2 {
     grid-column-start: 2;
   }

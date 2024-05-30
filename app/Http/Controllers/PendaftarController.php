@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePendaftarRequest;
 use App\Http\Requests\UpdatePendaftarRequest;
 use App\Models\Pendaftar;
+use Illuminate\Http\Request;
 
-use function Laravel\Prompts\alert;
 
 class PendaftarController extends Controller
 {
@@ -27,6 +27,22 @@ class PendaftarController extends Controller
         $pendaftar = Pendaftar::with('parentDb', 'asalSekolah')->where('nisn', $nisn)->first();
         $title = 'Detail';
         return view('detail', compact('pendaftar', 'title'));
+    }
+
+    public function accept(Request $request)
+    {
+        $ids = $request->input('ids');
+        Pendaftar::whereIn('id', $ids)->update(['isAccepted' => true]);
+
+        dd($ids);
+    }
+
+    public function diterima()
+    {
+
+        return view('accepted.diterima', [
+            'pendaftars' => Pendaftar::where('isAccepted', true)->get()
+        ]);
     }
 
     /**

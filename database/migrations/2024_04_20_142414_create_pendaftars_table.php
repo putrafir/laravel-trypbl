@@ -30,7 +30,7 @@ return new class extends Migration
             $table->foreign('parent_dbs_id')->references('id')->on('parent_dbs');
             $table->foreign('asalSekolah_id')->references('id')->on('asal_sekolahs');
             // $table->foreign('berkas_id')->references('id')->on('berkas');
-            // berkas
+            $table->boolean('isAccepted')->default(false);
             $table->timestamps();
         });
     }
