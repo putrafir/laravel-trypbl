@@ -90,10 +90,15 @@
                                     <select value="{{ old('namaLengkap') }}" id="gender"
                                         class="@error('jenisKelamin') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         name="jenisKelamin">
-                                        <option value="" selected>Pilih Jenis Kelamin</option>
-
-                                        <option value="laki-laki">Laki-laki</option>
-                                        <option value="perempuan">Perempuan</option>
+                                        <option value="" {{ old('jenisKelamin') == '' ? 'selected' : '' }} selected>
+                                            Pilih
+                                            Jenis Kelamin</option>
+                                        <option value="laki-laki"
+                                            {{ old('jenisKelamin') == 'laki-laki' ? 'selected' : '' }}>
+                                            Laki-laki</option>
+                                        <option value="perempuan"
+                                            {{ old('jenisKelamin') == 'perempuan' ? 'selected' : '' }}>
+                                            Perempuan</option>
                                     </select>
                                     @error('jenisKelamin')
                                         <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
@@ -152,7 +157,7 @@
                                 </div>
                                 <div class="mb-5">
                                     <label class="block mb-2 text-sm font-medium">NISN</label>
-                                    <input value="{{ old('password') }}" name="nisn" type="text"
+                                    <input value="{{ old('nisn') }}" name="nisn" type="text"
                                         class="@error('nisn') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
                                     @error('nisn')
                                         <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span
@@ -174,10 +179,15 @@
                                     <select value="{{ old('agama') }}" id="gender"
                                         class="@error('agama') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         name="agama">
-                                        <option value="" selected>Pilih Agama</option>
-                                        <option value="islam">Islam</option>
-                                        <option value="kristen">Kristen</option>
-                                        <option value="budha">Budha</option>
+                                        <option value=""{{ old('agama') == '' ? 'selected' : '' }} selected>Pilih
+                                            Agama
+                                        </option>
+                                        <option value="islam" {{ old('agama') == 'islam' ? 'selected' : '' }}>Islam
+                                        </option>
+                                        <option value="kristen" {{ old('agama') == 'kristen' ? 'selected' : '' }}>Kristen
+                                        </option>
+                                        <option value="budha" {{ old('agama') == 'budha' ? 'selected' : '' }}>Budha
+                                        </option>
                                     </select>
                                     @error('agama')
                                         <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span
@@ -194,9 +204,8 @@
                                     @enderror
                                 </div>
                                 <div class="mb-5">
-                                    <label value="{{ old('telepon') }}"
-                                        class="block mb-2 text-sm font-medium">Telepon</label>
-                                    <input name="telepon" type="text" id="telepon"
+                                    <label class="block mb-2 text-sm font-medium">Telepon</label>
+                                    <input value="{{ old('telepon') }}" name="telepon" type="text" id="telepon"
                                         class="@error('telepon') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
 
                                     @error('telepon')

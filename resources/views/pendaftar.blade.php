@@ -10,8 +10,10 @@
 
     <!-- konten -->
     <main class="-mt-[390px] ml-80 h-full max-h-screen">
-
         @include('partials.pages')
+
+        @include('layouts.peopleCard')
+        {{-- 
         <div class="w-[68rem] h-full bg-white shadow-lg rounded-xl mt-8">
             <div class="w-full h-full">
                 <h2 class="font-semibold p-7">Pendaftar</h2>
@@ -32,7 +34,7 @@
 
             </div>
             <div class="mb-4"></div>
-        </div>
+        </div> --}}
 
     </main>
 @endsection

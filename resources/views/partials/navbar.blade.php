@@ -1,5 +1,5 @@
 <div class="container">
-    <aside
+    {{-- <aside
         class="fixed top-5 bottom-5 lg:left-5 p-2 w-[270px] overflow-y-auto text-center bg-white rounded-3xl shadow-xl">
         <div class="text-dark text-xl pt-4">
             <div class="mt-1 flex justify-center items-center py-3">
@@ -100,7 +100,92 @@
                 <span class="text-gray-600 ml-5 text-base text-sm">Tambah pendaftar</span>
             </div>
         </a>
+    </aside> --}}
+    <aside id="default-sidebar"
+        class="fixed top-5 bottom-5 left-5 z-40  w-[270px]  transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto rounded-3xl bg-white dark:bg-gray-800 shadow-xl">
+            <ul class="font-medium text-sm">
+                <li>
+                    <div class="text-dark text-xl pt-4">
+                        <div class="mt-1 flex justify-center items-center py-3">
+                            <img src="img/logo.jpg" alt="logo" class="w-8 mr-2" />
+                            <h1 class="font-semibold text-base">Admin Panel</h1>
+                        </div>
+
+                        <hr class="my-3 text-gray-600 mx-5" />
+                    </div>
+                </li>
+                <div class="px-2">
+                    <li>
+                        <a href="/dashboard"
+                            class="flex items-center p-4 {{ Request::is('dashboard') ? ' bg-gray-100 text-blue-500' : '' }}  mt-3 text-slate-600 text-sm rounded-lg hover:bg-gray-100 group">
+                            <svg class="flex-shrink-0 w-5 h-5 {{ Request::is('dashboard') ? 'text-blue-500' : '' }}  text-slate-600 transition duration-75  "
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 18 18">
+                                <path
+                                    d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                            </svg>
+                            <span class="flex-1 ms-6 whitespace-nowrap">Dashboard</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pendaftar"
+                            class="flex items-center p-4 {{ Request::is('pendaftar') ? ' bg-gray-100 text-blue-500' : '' }}  text-slate-600 text-sm rounded-lg  hover:bg-gray-100  group">
+                            <svg class="flex-shrink-0 w-5 h-5 {{ Request::is('pendaftar') ? 'text-blue-500' : '' }} text-slate-600 transition duration-75  "
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
+                            </svg>
+                            <span class="flex-1 ms-6 whitespace-nowrap">Pendaftar</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/diterima"
+                            class="flex items-center p-4{{ Request::is('diterima') ? ' bg-gray-100 text-blue-500' : '' }}  text-slate-600 rounded-lg  hover:bg-gray-100  group">
+                            <svg class="flex-shrink-0 w-5 {{ Request::is('diterima') ? 'text-blue-500' : '' }} h-5 text-slate-600 transition duration-75 "
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 18">
+                                <path
+                                    d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                            </svg>
+                            <span class="flex-1 ms-6 whitespace-nowrap">Diterima</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/dress"
+                            class="flex items-center p-4 {{ Request::is('dress') ? ' bg-gray-100 text-blue-500' : '' }}   text-slate-600 rounded-lg  hover:bg-gray-100  group">
+                            <svg class="flex-shrink-0 w-5 {{ Request::is('dress') ? 'text-blue-500' : '' }}  h-5 text-slate-600 transition duration-75 "
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 18 20">
+                                <path
+                                    d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
+                            </svg>
+                            <span class="flex-1 ms-6 whitespace-nowrap">Ukuran baju</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/addPendaftar"
+                            class="flex items-center p-4 {{ Request::is('addPendaftar') ? ' bg-gray-100 text-blue-500' : '' }}  text-slate-600 rounded-lg  hover:bg-gray-100  group">
+                            <svg class="flex-shrink-0 w-5 {{ Request::is('addPendaftar') ? 'text-blue-500' : '' }} h-5 text-slate-600 transition duration-75 "
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 18 20">
+                                <path
+                                    d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
+                            </svg>
+                            <span class="flex-1 ms-6 whitespace-nowrap">Tambah pendaftar</span>
+                        </a>
+                    </li>
+
+
+                </div>
+            </ul>
+        </div>
     </aside>
+
 
     <!-- Side samping end -->
 </div>

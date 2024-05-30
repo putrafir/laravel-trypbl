@@ -6,6 +6,8 @@ use App\Http\Requests\StorePendaftarRequest;
 use App\Http\Requests\UpdatePendaftarRequest;
 use App\Models\Pendaftar;
 
+use function Laravel\Prompts\alert;
+
 class PendaftarController extends Controller
 {
     /**
@@ -13,9 +15,11 @@ class PendaftarController extends Controller
      */
     public function index()
     {
+
         return view('pendaftar', [
             "title" => "Pendaftar",
             'pendaftars' => Pendaftar::latest()->filter(request(['search']))->get()
+
         ]);
     }
     public function show($nisn)
