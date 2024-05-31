@@ -8,7 +8,7 @@
                 <li>
                     <div class="text-dark text-xl pt-4">
                         <div class="mt-1 flex justify-center items-center py-3">
-                            <img src="img/logo.jpg" alt="logo" class="w-8 mr-2" />
+                            <img src="{{ asset('img/logo.jpg') }}" alt="logo" class="w-8 mr-2" />
                             <h1 class="font-semibold text-base">Admin Panel</h1>
                         </div>
 
@@ -36,10 +36,10 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/pendaftar"
-                            class="flex items-center  px-4 py-3 {{ Request::is('pendaftar') ? 'bg-gray-100 text-blue-500' : 'text-slate-600' }}   rounded-lg  hover:bg-gray-100  group">
+                        <a href="{{ route('pendaftar') }}"
+                            class="flex items-center  px-4 py-3 {{ Request::is('pendaftars/*') ? 'bg-gray-100 text-blue-500' : 'text-slate-600' }}   rounded-lg  hover:bg-gray-100  group">
 
-                            <svg class="{{ Request::is('pendaftar') ? 'text-blue-500' : 'text-slate-600' }}   transition duration-75  "
+                            <svg class="{{ Request::is('pendaftars/*') ? 'text-blue-500' : 'text-slate-600' }}   transition duration-75  "
                                 width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M12 6C10.067 6 8.5 7.567 8.5 9.5C8.5 11.433 10.067 13 12 13C13.933 13 15.5 11.433 15.5 9.5C15.5 7.567 13.933 6 12 6ZM10.5 14C8.29086 14 6.5 15.7909 6.5 18C6.5 19.1046 7.39543 20 8.5 20H15.5C16.6046 20 17.5 19.1046 17.5 18C17.5 15.7909 15.7091 14 13.5 14H10.5Z" />

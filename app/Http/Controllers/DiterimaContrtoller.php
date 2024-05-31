@@ -9,15 +9,16 @@ class DiterimaContrtoller extends Controller
 {
     public function index()
     {
-        return view('accepted.diterima', [
+        return view('accepted.index', [
             'title' => 'Diterima',
             'pendaftars' => Pendaftar::where('isAccepted', true)->get()
         ]);
     }
     public function show($nisn)
     {
-        $pendaftar = Pendaftar::with('parentDb', 'asalSekolah')->where('nisn', $nisn)->first();
-        $title = 'Detail';
-        return view('detail', compact('pendaftar', 'title'));
+        return view('accepted.detail', [
+            'title' => 'Detail',
+            'pendaftar' => Pendaftar::with('parentDb', 'asalSekolah')->where('nisn', $nisn)->first()
+        ]);
     }
 }

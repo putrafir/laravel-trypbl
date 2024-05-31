@@ -15,8 +15,7 @@ class PendaftarController extends Controller
      */
     public function index()
     {
-
-        return view('pendaftar', [
+        return view('pendaftar.index', [
             "title" => "Pendaftar",
             'pendaftars' => Pendaftar::where('isAccepted', false)->latest()->filter(request(['search']))->get()
 
@@ -24,17 +23,24 @@ class PendaftarController extends Controller
     }
     public function show($nisn)
     {
-        $pendaftar = Pendaftar::with('parentDb', 'asalSekolah')->where('nisn', $nisn)->first();
-        $title = 'Detail';
-        return view('detail', compact('pendaftar', 'title'));
+        return view('pendaftar.detail', [
+            'title' => 'Detail',
+            'pendaftar' => Pendaftar::with('parentDb', 'asalSekolah')->where('nisn', $nisn)->first()
+        ]);
     }
 
     public function accept(Request $request)
     {
         $ids = $request->input('ids');
+
+        $pendaftars = Pendaftar::whereIn('id', $ids)->get();
+
         Pendaftar::whereIn('id', $ids)->update(['isAccepted' => true]);
 
-        return redirect('/pendaftar');
+        $acceptedNames = $pendaftars->pluck('namaLengkap')->toArray();
+        $message = implode(', ', $acceptedNames) . ' telah diterima';
+
+        return redirect()->route('pendaftar')->with('succes', $message);
     }
 
 

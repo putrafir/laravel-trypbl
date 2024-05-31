@@ -1,24 +1,3 @@
-{{-- <div class="grid grid-cols-6">
-    <div class=" w-[65rem] h-[70px] flex flex-wrap bg-white shadow-sm mt-3 mx-6 rounded-xl border">
-        <img src="{{ $pendaftar->pasFoto }}" alt="profil" class="w-[66px] py-2 px-2" />
-        <h2 class="font-semibold pl-4 text-dark mt-6">
-            {{ $pendaftar->namaLengkap }}
-        </h2>
-        <div class="pt-6 flex absolute pl-60">
-            <h2 class="pl-[116px] text-sm text-slate-400">{{ $pendaftar->nisn }}</h2>
-            <h2 class="pl-[4rem] text-sm text-slate-400">{{ $pendaftar->jenisKelamin }}</h2>
-            <h2 class="pl-[4rem] text-sm text-slate-400">{{ $pendaftar->kota }}</h2>
-        </div>
-
-        <a class="-mt-12" href="/pendaftars/{{ $pendaftar->nisn }}">
-            <button name="lihat" type="submit"
-                class="text-white h-7  bg-blueFist font-medium rounded-full text-[10px] px-5 ml-[946px] me-2 hover:bg-bluSecond">
-                Lihat
-            </button>
-        </a>
-    </div>
-</div> --}}
-
 <div class="relative overflow-x-auto shadow-md sm:rounded-2xl mt-4 mr-8">
 
     @csrf
@@ -42,7 +21,7 @@
             <span></span>
         @endif
 
-        <form action="/pendaftar">
+        <form action="{{ route('pendaftar') }}">
             <label for="table-search" class="sr-only">Search</label>
             <div class=" relative pt-3 pr-3 ">
                 <div class="absolute pt-3 inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -60,10 +39,10 @@
 
     </div>
 
-    <form action="/pendaftar" method="POST">
+    <form action="{{ route('pendaftar.accept') }}" method="POST">
         @csrf
 
-        @if (Request::is('pendaftar'))
+        @if (Request::is('pendaftars/*'))
             <div class="pl-3 absolute -mt-12">
 
                 <button type="submit"
@@ -74,42 +53,46 @@
             </div>
         @endif
 
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-dark uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    @if (Request::is('pendaftar'))
-                        <th scope="col" class="p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                            </div>
-                        </th>
-                    @endif
 
-                    <th scope="col" class="px-6 py-3">
-                        Name
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Nisn
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Jenis Kelamin
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Alamat
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @if ($pendaftars->count())
+        @include('partials.succesAlert')
+
+        @if ($pendaftars->count())
+
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500  dark:text-gray-400">
+                <thead class="text-xs text-dark uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        @if (Request::is('pendaftars/*'))
+                            <th scope="col" class="p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all-search" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                </div>
+                            </th>
+                        @endif
+
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nisn
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nomor Telepon
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Asal Sekolah
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
                     @foreach ($pendaftars as $pendaftar)
                         <tr
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            @if (Request::is('pendaftar'))
+                            @if (Request::is('pendaftars/*'))
                                 <td class="w-4 p-4">
                                     <div class="flex items-center">
                                         <input name="ids[]" value="{{ $pendaftar->id }}" id="checkbox-table-search-1"
@@ -132,50 +115,82 @@
                                 {{ $pendaftar->nisn }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $pendaftar->jenisKelamin }}
+                                {{ $pendaftar->telepon }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $pendaftar->alamat }}
+                                {{ $pendaftar->asalSekolah->asalSMP }}
                             </td>
                             <td class="px-6 py-4">
-                                <a class="text-white  py-2 px-3  bg-blueFist font-medium rounded-full text-[10px] hover:bg-bluSecond"
-                                    href="/pendaftars/{{ $pendaftar->nisn }}">
-                                    Lihat
-                                </a>
+                                @if (Request::is('pendaftars/*'))
+                                    <a class="text-white  py-2 px-3  bg-blueFist font-medium rounded-full text-[10px] hover:bg-bluSecond"
+                                        href="{{ route('detailPendaftar', ['pendaftar' => $pendaftar->nisn]) }}">
+                                        Lihat
+                                    </a>
+                                @else
+                                    <a class="text-white  py-2 px-3  bg-blueFist font-medium rounded-full text-[10px] hover:bg-bluSecond"
+                                        href="{{ route('detailAccepted', ['accept' => $pendaftar->nisn]) }}">
+                                        Lihat
+                                    </a>
+                                @endif
+
                             </td>
                         </tr>
                     @endforeach
-                @else
-                    <div id="popup-modal" tabindex="-1"
-                        class=" overflow-y-auto overflow-x-hidde mx-[25%] top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                        <div class=" p-4 w-full max-w-md max-h-full">
-                            <div class=" bg-white rounded-lg shadow dark:bg-gray-700">
 
-                                <div class="p-4 md:p-5 text-center">
-                                    <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 20 20">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                    </svg>
-                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Ups! Ternyata
-                                        belum
-                                        ada yang mendaftar, Ingin menambahkan?</h3>
-                                    <a href="/addPendaftar" data-modal-hide="popup-modal"
-                                        class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                        Tambahkan
-                                    </a>
-                                    <button data-modal-hide="popup-modal" type="button"
-                                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                                        Tidak</button>
-                                </div>
-                            </div>
+
+                </tbody>
+            </table>
+        @else
+            <div id="popup-modal" tabindex="-1"
+                class=" bg-white top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class=" p-4  mx-[25%] w-full max-w-md max-h-full">
+                    <div>
+                        <div class="p-4 md:p-5 text-center">
+                            <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Ups! Ternyata
+                                belum
+                                ada yang mendaftar, Ingin menambahkan?</h3>
+                            <a href="/addPendaftar" data-modal-hide="popup-modal"
+                                class="text-white bg-blueFist hover:bg-bluSecond focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                Tambahkan
+                            </a>
+                            <button data-modal-hide="popup-modal" type="button"
+                                class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                Tidak</button>
                         </div>
                     </div>
-                @endif
+                </div>
+            </div>
+        @endif
 
-            </tbody>
-        </table>
     </form>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to hide the modal
+        function hideModal() {
+            const modal = document.getElementById("popup-modal");
+            modal.classList.add("hidden");
+        }
+
+        // Get all elements that should hide the modal
+        const hideModalElements = document.querySelectorAll("[data-modal-hide='popup-modal']");
+
+        // Add click event listeners to those elements
+        hideModalElements.forEach(function(element) {
+            element.addEventListener("click", hideModal);
+        });
+
+        // Add click event listener to the background overlay to hide the modal
+        document.getElementById("popup-modal").addEventListener("click", function(event) {
+            if (event.target === this) {
+                hideModal();
+            }
+        });
+    });
+</script>
