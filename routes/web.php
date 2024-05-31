@@ -14,7 +14,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::get('/pendaftar', [PendaftarController::class, 'index'])->middleware('auth');
+Route::get('/pendaftar', [PendaftarController::class, 'index'])->name('pendaftar')->middleware('auth');
 
 Route::post('/pendaftar', [PendaftarController::class, 'accept']);
 

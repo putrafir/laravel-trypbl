@@ -61,6 +61,19 @@
     </div>
 
     <form action="/pendaftar" method="POST">
+        @csrf
+
+        @if (Request::is('pendaftar'))
+            <div class="pl-3 absolute -mt-12">
+
+                <button type="submit"
+                    class="flex gap-1 border border-gray-300 hover:bg-gray-100 text-gray-500 rounded-xl py-2 px-4">
+                    <span class=" text-sm">Terima semua</span>
+
+                </button>
+            </div>
+        @endif
+
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-dark uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

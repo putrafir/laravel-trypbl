@@ -9,11 +9,9 @@ class DiterimaContrtoller extends Controller
 {
     public function index()
     {
-
         return view('accepted.diterima', [
-            "title" => "Diterima",
-            'pendaftars' => Pendaftar::latest()->filter(request(['search']))->get()
-
+            'title' => 'Diterima',
+            'pendaftars' => Pendaftar::where('isAccepted', true)->get()
         ]);
     }
     public function show($nisn)

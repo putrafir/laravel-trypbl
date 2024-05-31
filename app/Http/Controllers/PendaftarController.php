@@ -18,7 +18,7 @@ class PendaftarController extends Controller
 
         return view('pendaftar', [
             "title" => "Pendaftar",
-            'pendaftars' => Pendaftar::latest()->filter(request(['search']))->get()
+            'pendaftars' => Pendaftar::where('isAccepted', false)->latest()->filter(request(['search']))->get()
 
         ]);
     }
@@ -34,16 +34,9 @@ class PendaftarController extends Controller
         $ids = $request->input('ids');
         Pendaftar::whereIn('id', $ids)->update(['isAccepted' => true]);
 
-        dd($ids);
+        return redirect('/pendaftar');
     }
 
-    public function diterima()
-    {
-
-        return view('accepted.diterima', [
-            'pendaftars' => Pendaftar::where('isAccepted', true)->get()
-        ]);
-    }
 
     /**
      * Show the form for creating a new resource.
