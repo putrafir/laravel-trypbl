@@ -9,9 +9,19 @@ class DiterimaContrtoller extends Controller
 {
     public function index()
     {
+
+        $search = request('search');
+        $pendaftars = Pendaftar::where('isAccepted', true)->filter(request(['search']))->get();
+        $searchMessage = null;
+
+        if ($search && $pendaftars->isEmpty()) {
+            $searchMessage = 'Pendaftar tidak ditemukan';
+        }
+
         return view('accepted.index', [
             'title' => 'Diterima',
-            'pendaftars' => Pendaftar::where('isAccepted', true)->get()
+            'pendaftars' => $pendaftars,
+            'searchMessage' => $searchMessage
         ]);
     }
     public function show($nisn)

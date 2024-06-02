@@ -20,7 +20,7 @@
                 </div>
                 <hr class="pb-4 border-t-2 border-secondary opacity-25" />
                 <div class="contentBox px-6">
-                    @include('partials.succesAlert')
+                    @include('partials.alert.succesAlert')
                     <form class="max-w-sm mt-6 pb-7" method="POST" action="/addPendaftar">
                         @csrf
                         <!-- Data diri -->

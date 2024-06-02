@@ -16,8 +16,6 @@ class Pendaftar extends Model
     {
         $query->when($filters['search'] ?? false, fn ($query, $search) => $query->where('namaLengkap', 'like', '%' . $search . '%')->orWhere('nisn', 'like', '%' . $search . '%'));
     }
-
-
     public function parentDb()
     {
         // return $this->belongsTo(ParentDb::class,)

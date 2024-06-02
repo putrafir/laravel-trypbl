@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePendaftarRequest;
 use App\Models\Pendaftar;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\search;
 
 class PendaftarController extends Controller
 {
@@ -15,10 +16,18 @@ class PendaftarController extends Controller
      */
     public function index()
     {
+        $search = request('search');
+        $pendaftars = Pendaftar::where('isAccepted', false)->latest()->filter(request(['search']))->get();
+        $searchMessage = null;
+
+        if ($search && $pendaftars->isEmpty()) {
+            $searchMessage = 'Pendaftar tidak ditemukan';
+        }
+
         return view('pendaftar.index', [
             "title" => "Pendaftar",
-            'pendaftars' => Pendaftar::where('isAccepted', false)->latest()->filter(request(['search']))->get()
-
+            'pendaftars' => $pendaftars,
+            'searchMessage' => $searchMessage
         ]);
     }
     public function show($nisn)
