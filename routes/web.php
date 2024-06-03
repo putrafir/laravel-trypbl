@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddPendaftarController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DiterimaController;
 use App\Http\Controllers\DiterimaContrtoller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PendaftarController;
@@ -18,23 +19,28 @@ Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::prefix('pendaftars')->group(function () {
-    Route::get('/pendaftar', [PendaftarController::class, 'index'])->name('pendaftar')->middleware('auth');
-    Route::post('/pendaftar', [PendaftarController::class, 'accept'])->name('pendaftar.accept');
-    Route::get('/pendaftars/{pendaftar:nisn}', [PendaftarController::class, 'show'])->name('detailPendaftar');
+    Route::post('pendaftar/accept', [PendaftarController::class, 'accept'])->name('pendaftar.accept');
+    Route::resource('pendaftar', PendaftarController::class)->middleware('auth');
+
+    // tidak dibutuhkan lagi karena menggunakan resource controller
+    // Route::get('/pendaftar', [PendaftarController::class, 'index'])->name('pendaftar')->middleware('auth');
+    // Route::get('/pendaftars/{pendaftar:nisn}', [PendaftarController::class, 'show'])->name('detailPendaftar');
 });
 
 
 Route::prefix('accepted')->group(function () {
-    Route::get(
-        'diterima',
-        [DiterimaContrtoller::class, 'index']
-    )->name('diterima');
+    // Route::get(
+    //     'diterima',
+    //     [DiterimaContrtoller::class, 'index']
+    // )->name('diterima');
     Route::get('/dress', function () {
         return view('accepted.dress', [
             'title' => 'Ukuran Baju'
         ]);
     })->name('dress');
-    Route::get('/accepted/{accept:nisn}', [DiterimaContrtoller::class, 'show'])->name('detailAccepted');
+    // Route::get('/accepted/{accept:nisn}', [DiterimaContrtoller::class, 'show'])->name('detailAccepted');
+
+    Route::resource('diterima', DiterimaController::class)->middleware('auth');
 });
 
 

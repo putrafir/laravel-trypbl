@@ -1,5 +1,5 @@
 @if (Request::is('pendaftars/*'))
-    <form action="{{ route('pendaftar') }}">
+    <form action="{{ route('pendaftar.index') }}">
         <label for="table-search" class="sr-only">Search</label>
         <div class=" relative pt-3 pr-3 ">
             <div class="absolute pt-3 inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -17,7 +17,7 @@
     </form>
 @endif
 @if (Request::is('accepted/*'))
-    <form action="{{ route('diterima') }}">
+    <form action="{{ route('diterima.index') }}">
         <label for="table-search" class="sr-only">Search</label>
         <div class=" relative pt-3 pr-3 ">
             <div class="absolute pt-3 inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">

@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('pendaftar') }}"
+                        <a href="{{ route('pendaftar.index') }}"
                             class="flex items-center  px-4 py-3 {{ Request::is('pendaftars/*') ? 'bg-gray-100 text-blue-500' : 'text-slate-600' }}   rounded-lg  hover:bg-gray-100  group">
 
                             <svg class="{{ Request::is('pendaftars/*') ? 'text-blue-500' : 'text-slate-600' }}   transition duration-75  "
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('diterima') }}"
+                        <a href="{{ route('diterima.index') }}"
                             class="flex items-center px-4 py-3  {{ Request::is('accepted/*') ? 'bg-gray-100 text-blue-500' : 'text-slate-600 ' }} rounded-lg  hover:bg-gray-100  group">
 
                             <svg class="{{ Request::is('accepted/*') ? 'text-blue-500' : 'text-slate-600' }}  transition duration-75 "

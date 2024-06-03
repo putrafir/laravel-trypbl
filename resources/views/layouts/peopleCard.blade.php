@@ -110,12 +110,12 @@
                             <td class="px-6 py-4">
                                 @if (Request::is('pendaftars/*'))
                                     <a class="text-white  py-2 px-3  bg-blueFist font-medium rounded-full text-[10px] hover:bg-bluSecond"
-                                        href="{{ route('detailPendaftar', ['pendaftar' => $pendaftar->nisn]) }}">
+                                        href="{{ route('pendaftar.show', $pendaftar->nisn) }}">
                                         Lihat
                                     </a>
                                 @else
                                     <a class="text-white  py-2 px-3  bg-blueFist font-medium rounded-full text-[10px] hover:bg-bluSecond"
-                                        href="{{ route('detailAccepted', ['accept' => $pendaftar->nisn]) }}">
+                                        href="{{ route('diterima.show', $pendaftar->nisn) }}">
                                         Lihat
                                     </a>
                                 @endif

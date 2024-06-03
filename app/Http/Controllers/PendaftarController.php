@@ -49,7 +49,7 @@ class PendaftarController extends Controller
         $acceptedNames = $pendaftars->pluck('namaLengkap')->toArray();
         $message = implode(', ', $acceptedNames) . ' telah diterima';
 
-        return redirect()->route('pendaftar')->with('succes', $message);
+        return redirect()->route('pendaftar.index')->with('succes', $message);
     }
 
 
@@ -95,6 +95,8 @@ class PendaftarController extends Controller
      */
     public function destroy(Pendaftar $pendaftar)
     {
-        //
+        Pendaftar::destroy($pendaftar->id);
+
+        return redirect()->route('pendaftar.index')->with('deleted', $pendaftar->namaLengkap . ' Telah ditolak');
     }
 }
