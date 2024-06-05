@@ -21,7 +21,8 @@
                 <hr class="pb-4 border-t-2 border-secondary opacity-25" />
                 <div class="contentBox px-6">
                     @include('partials.alert.succesAlert')
-                    <form class="max-w-sm mt-6 pb-7" method="POST" action="{{ route('diterima.update', $pendaftar->id) }}">
+                    <form class="max-w-sm mt-6 pb-7" method="POST"
+                        action="{{ route('diterima.update', $pendaftar->nisn) }}">
                         @method('put')
                         @csrf
                         <!-- Data diri -->
@@ -135,17 +136,20 @@
                                 </div>
                                 <div class="mb-5">
                                     <label class="block mb-2 text-sm font-medium  dark:text-white">Agama</label>
-                                    <select value="{{ old('agama', $pendaftar->agama) }}" id="gender"
+                                    <select
                                         class="@error('agama') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         name="agama">
                                         <option value=""{{ old('agama') == '' ? 'selected' : '' }} selected>Pilih
                                             Agama
                                         </option>
-                                        <option value="islam" {{ old('agama') == 'islam' ? 'selected' : '' }}>Islam
+                                        <option value="islam"
+                                            {{ old('agama', $pendaftar->agama) == 'islam' ? 'selected' : '' }}>Islam
                                         </option>
-                                        <option value="kristen" {{ old('agama') == 'kristen' ? 'selected' : '' }}>Kristen
+                                        <option value="kristen"
+                                            {{ old('agama', $pendaftar->agama) == 'kristen' ? 'selected' : '' }}>Kristen
                                         </option>
-                                        <option value="budha" {{ old('agama') == 'budha' ? 'selected' : '' }}>Budha
+                                        <option value="budha"
+                                            {{ old('agama', $pendaftar->agama) == 'budha' ? 'selected' : '' }}>Budha
                                         </option>
                                     </select>
                                     @error('agama')

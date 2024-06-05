@@ -32,6 +32,7 @@ class PendaftarController extends Controller
     }
     public function show($nisn)
     {
+
         return view('pendaftar.detail', [
             'title' => 'Detail',
             'pendaftar' => Pendaftar::with('parentDb', 'asalSekolah')->where('nisn', $nisn)->first()

@@ -21,7 +21,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::prefix('pendaftars')->group(function () {
     Route::post('pendaftar/accept', [PendaftarController::class, 'accept'])->name('pendaftar.accept');
     Route::resource('pendaftar', PendaftarController::class)->middleware('auth');
-
     // tidak dibutuhkan lagi karena menggunakan resource controller
     // Route::get('/pendaftar', [PendaftarController::class, 'index'])->name('pendaftar')->middleware('auth');
     // Route::get('/pendaftars/{pendaftar:nisn}', [PendaftarController::class, 'show'])->name('detailPendaftar');
@@ -29,10 +28,6 @@ Route::prefix('pendaftars')->group(function () {
 
 
 Route::prefix('accepted')->group(function () {
-    // Route::get(
-    //     'diterima',
-    //     [DiterimaContrtoller::class, 'index']
-    // )->name('diterima');
     Route::get('/dress', function () {
         return view('accepted.dress', [
             'title' => 'Ukuran Baju'
@@ -41,6 +36,8 @@ Route::prefix('accepted')->group(function () {
     // Route::get('/accepted/{accept:nisn}', [DiterimaContrtoller::class, 'show'])->name('detailAccepted');
 
     Route::resource('diterima', DiterimaController::class)->middleware('auth');
+    // Route::get('/diterima/{nisn}/edits', [DiterimaController::class, 'edits'])->name('diterima.edits');
+    // Route::put('/diterima/{nisn}/ubah', [DiterimaController::class, 'ubah'])->name('diterima.ubah');
 });
 
 
