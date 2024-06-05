@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Pendaftar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DiterimaController extends Controller
 {
@@ -70,7 +72,65 @@ class DiterimaController extends Controller
      */
     public function update(Request $request, Pendaftar $pendaftar)
     {
-        //
+        dd($pendaftar);
+        $rules = [
+            'namaLengkap' => 'required',
+            'jenisKelamin' => 'required',
+            'tanggalLahir' => 'required|date|before:today',
+            'alamat' => 'required',
+            'email' => 'required|email:dns',
+            'kota' => 'required',
+            'tempatLahir' => 'required',
+            'agama' => 'required',
+            'provinsi' => 'required',
+            'telepon' => 'required',
+        ];
+
+        if ($request->nisn != $pendaftar->nisn) {
+            $rules['nisn'] = 'required|digits:10|unique:pendaftars,nisn';
+        } else {
+            $rules['nisn'] = 'required|digits:10';
+        }
+
+        // dd($pendaftar->namaLengkap);
+        // dd('ini request ' . $request->nisn . ' ini pendaftar ' . $pendaftar->nisn);
+
+        $validatedPendaftar = $request->validate($rules);
+
+
+        $validatedOrangTua = $request->validate([
+            'namaAyah' => 'required',
+            'nikAyah' => 'required',
+            'pekerjaanAyah' => 'required',
+            'teleponAyah' => 'required',
+            'alamatAyah' => 'required',
+            'usiaAyah' => 'required',
+            'namaIbu' => 'required',
+            'nikIbu' => 'required',
+            'pekerjaanIbu' => 'required',
+            'teleponIbu' => 'required',
+            'alamatIbu' => 'required',
+            'usiaIbu' => 'required'
+        ]);
+
+        $validatedAsalSekolah = $request->validate(
+            [
+                'provinsiSMP' => 'required',
+                'kotaSMP' => 'required',
+                'asalSMP' => 'required',
+                'alamatSMP' => 'required'
+
+            ]
+        );
+        DB::transaction(function () use ($pendaftar, $validatedPendaftar, $validatedOrangTua, $validatedAsalSekolah) {
+            $pendaftar->asalSekolah()->update($validatedAsalSekolah);
+
+            $pendaftar->parentDb()->update($validatedOrangTua);
+
+            $pendaftar->update($validatedPendaftar);
+        });
+
+        redirect()->route('diterima.show')->with('succes', $pendaftar->nisn . ' Berhasil di update');
     }
 
     /**
