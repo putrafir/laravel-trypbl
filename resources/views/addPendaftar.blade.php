@@ -21,7 +21,7 @@
                 <hr class="pb-4 border-t-2 border-secondary opacity-25" />
                 <div class="contentBox px-6">
                     @include('partials.alert.succesAlert')
-                    <form class="max-w-sm mt-6 pb-7" method="POST" action="/addPendaftar">
+                    <form class="max-w-sm mt-6 pb-7" method="POST" action="/addPendaftar" enctype="multipart/form-data">
                         @csrf
                         <!-- Data diri -->
 
@@ -119,6 +119,7 @@
                                         <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span
                                                 class="font-medium">{{ $message }}</p>
                                     @enderror
+
                                 </div>
                                 <div class="mb-5">
                                     <label class="block mb-2 text-sm font-medium">Tempat lahir</label>
@@ -214,7 +215,7 @@
                                         <input value="{{ old('teleponAyah') }}" name="teleponAyah" type="text"
                                             id="alamat"
                                             class="@error('teleponAyah') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-                                        @error('alamat')
+                                        @error('teleponAyah')
                                             <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
                                                 <span class="font-medium">{{ $message }}
                                             </p>
@@ -310,6 +311,7 @@
                                     </div>
 
                                 </div>
+
                             </div>
                         </div>
                         <!-- Asal Sekolah -->
@@ -379,6 +381,11 @@
                                         class="flex justify-center my-3 text-sm font-medium">Pilih
                                         File</label>
                                 </div>
+                                @error('ijazah')
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                        <span class="font-medium">{{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="pt-4">
                                 <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">PAS

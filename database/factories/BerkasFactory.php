@@ -18,7 +18,7 @@ class BerkasFactory extends Factory
     {
         return [
             'ijazah' => fake()->imageUrl(360, 360, 'animals', true),
-            'pasFoto' => fake()->imageUrl(360, 360, 'animals', true),
+            'pasFoto' => fake()->imageUrl(360, 360, 'people', true),
             'kartuKeluarga' => fake()->imageUrl(360, 360, 'animals', true),
             'aktaKelahiran' => fake()->imageUrl(360, 360, 'animals', true),
         ];

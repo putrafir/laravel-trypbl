@@ -1,7 +1,8 @@
-<div class="flex flex-col w-[68rem]">
+{{-- <div class="flex flex-col w-[68rem]">
     <div class="h-[6rem] mt-8 bg-white shadow-lg rounded-2xl">
         <div class="py-[13px] px-[13px] flex">
-            <img src="../../../img/profil/gua.pdf" class=" rounded-xl" alt="profile" />
+            <img src="{{ asset('storage/' . $pendaftar->berkas->pasFoto) }}" class=" w-14 h-14 rounded-xl"
+                alt="profile" />
             <div class="py-3 pl-[1rem] text-dark">
                 <h5 class="font-semibold pb-1">{{ $pendaftar->namaLengkap }}</h5>
                 <p class="text-[12px]">{{ $pendaftar->email }}</p>
@@ -55,7 +56,71 @@
             </div>
         </div>
     </div>
+</div> --}}
+
+
+
+<div
+    class="w-[68rem] h-[6rem] justify-between py-[1.4rem]  bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
+
+    <div class="flex items-center justify-between">
+        <div class="flex pl-4 gap-4">
+            <img class="w-14 h-14 object-cover  rounded-full shadow-lg"
+                src="{{ asset('storage/' . $pendaftar->berkas->pasFoto) }}" alt="Bonnie image" />
+            <div>
+                <h5 class=" text-xl font-medium text-gray-900 dark:text-white">{{ $pendaftar->namaLengkap }}</h5>
+                <span class="text-sm text-gray-500 dark:text-gray-400">{{ $pendaftar->email }}</span>
+            </div>
+        </div>
+        <div class="flex pr-4 gap-2">
+            @if (Request::is('pendaftars/*'))
+                <form action="{{ route('pendaftar.destroy', $pendaftar->id) }}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <div class="group">
+                        <button id="tolak" onclick="changeColor1()" type="submit"
+                            class="pr-3 pl-2 py-2 h-10 text-xs font-medium text-center  bg-rose-400 hover:bg-rose-500  text-white inline-flex items-center rounded-xl">
+                            <svg id="tolakIcon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path id="pathTolak" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M16.2426 7.75736C16.6332 8.14788 16.6332 8.78104 16.2426 9.17157L13.4142 12L16.2426 14.8284C16.6332 15.2189 16.6332 15.8521 16.2426 16.2426C15.8521 16.6332 15.219 16.6332 14.8284 16.2426L12 13.4142L9.17157 16.2426C8.78105 16.6332 8.14788 16.6332 7.75736 16.2426C7.36684 15.8521 7.36684 15.2189 7.75736 14.8284L10.5858 12L7.75736 9.17157C7.36684 8.78105 7.36684 8.14788 7.75736 7.75736C8.14788 7.36683 8.78105 7.36683 9.17157 7.75736L12 10.5858L14.8284 7.75736C15.219 7.36683 15.8521 7.36683 16.2426 7.75736Z" />
+                            </svg>
+                            <span id="buttonTolak"> Tolak </span>
+                        </button>
+                    </div>
+                </form>
+                <form action="{{ route('pendaftar.accept') }}" method="POST">
+                    <input type="hidden" name="ids[]" value="{{ $pendaftar->id }}">
+                    @csrf
+                    <div class="group ">
+                        <button id="myButton" onclick="changeColor()" type="submit"
+                            class="pr-3 pl-2 py-2 h-10 text-xs font-medium bg-teal-400 hover:bg-teal-500 text-white text-center inline-flex items-center rounded-xl">
+                            <svg id="myIcon" width="24" height="24" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path id="myPath" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.0096 7.75789C18.4001 8.14841 18.4001 8.78158 18.0096 9.1721L10.9396 16.2421C10.7521 16.4296 10.4977 16.535 10.2325 16.535C9.96729 16.535 9.71294 16.4296 9.5254 16.2421L5.9904 12.7071C5.59988 12.3166 5.59988 11.6834 5.9904 11.2929C6.38093 10.9024 7.01409 10.9024 7.40462 11.2929L10.2325 14.1208L16.5954 7.75789C16.9859 7.36737 17.6191 7.36737 18.0096 7.75789Z" />
+                            </svg>
+                            <span id="myButtonText"> Terima </span>
+                        </button>
+                    </div>
+                </form>
+            @else
+                <div class="group ">
+                    <a href="{{ route('diterima.edit', $pendaftar->nisn) }}" onclick="changeColor()"
+                        class="pr-3 pl-2 py-2 h-10 text-xs font-medium bg-orange-400 hover:bg-orange-500 text-white text-center inline-flex items-center rounded-xl">
+                        <svg id="myIcon" width="24" height="24" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                            <path id="myPath" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M18.0096 7.75789C18.4001 8.14841 18.4001 8.78158 18.0096 9.1721L10.9396 16.2421C10.7521 16.4296 10.4977 16.535 10.2325 16.535C9.96729 16.535 9.71294 16.4296 9.5254 16.2421L5.9904 12.7071C5.59988 12.3166 5.59988 11.6834 5.9904 11.2929C6.38093 10.9024 7.01409 10.9024 7.40462 11.2929L10.2325 14.1208L16.5954 7.75789C16.9859 7.36737 17.6191 7.36737 18.0096 7.75789Z" />
+                        </svg>
+                        <span id="myButtonText"> Edit </span>
+                    </a>
+                </div>
+            @endif
+        </div>
+    </div>
 </div>
+
 
 <div class="container pt-6">
     <div class="bg-white w-[68rem] shadow-lg rounded-xl">
@@ -279,31 +344,32 @@
                         <h2 class="flex justify-center my-8 font-semibold">
                             IJAZAH/SKL SMP
                         </h2>
-                        <img class="w-[20rem] h-52 rounded-lg bottom-6 mx-[3.2rem] absolute" src=""
-                            alt="ijazah" onclick="openModal(this.src)" />
+                        <img class="w-[20rem] h-52 object-cover rounded-lg bottom-6 mx-[3.2rem] absolute"
+                            src="{{ asset('storage/' . $pendaftar->berkas->ijazah) }}" alt="ijazah"
+                            onclick="openModal(this.src)" />
                     </div>
                     <div class="relative h-80 bg-white shadow-lg border rounded-xl">
                         <h2 class="flex justify-center my-8 font-semibold">
                             PAS FOTO
                         </h2>
-                        <img class="w-[20rem] h-52 rounded-lg bottom-6 mx-[3.2rem] absolute"
-                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt=""
+                        <img class="w-[20rem] h-52 object-cover rounded-lg bottom-6 mx-[3.2rem] absolute"
+                            src="{{ asset('storage/' . $pendaftar->berkas->pasFoto) }}" alt=""
                             onclick="openModal(this.src)" />
                     </div>
                     <div class="relative h-80 bg-white shadow-lg border rounded-xl">
                         <h2 class="flex justify-center my-8 font-semibold">
                             KARTU KELUARGA
                         </h2>
-                        <img class="w-[20rem] h-52 rounded-lg bottom-6 mx-[3.2rem] absolute"
-                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt=""
+                        <img class="w-[20rem] h-52 object-cover rounded-lg bottom-6 mx-[3.2rem] absolute"
+                            src="{{ asset('storage/' . $pendaftar->berkas->kartuKeluarga) }}" alt=""
                             onclick="openModal(this.src)" />
                     </div>
                     <div class="relative h-80 bg-white shadow-lg border rounded-xl">
                         <h2 class="flex justify-center my-8 font-semibold">
                             AKTA KELAHIRAN
                         </h2>
-                        <img class="w-[20rem] h-52 rounded-lg bottom-6 mx-[3.2rem] absolute"
-                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt=""
+                        <img class="w-[20rem] h-52 object-cover rounded-lg bottom-6 mx-[3.2rem] absolute"
+                            src="{{ asset('storage/' . $pendaftar->berkas->aktaKelahiran) }}" alt=""
                             onclick="openModal(this.src)" />
                     </div>
                     <div class="pb-6"></div>

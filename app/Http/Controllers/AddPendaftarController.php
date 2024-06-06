@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AsalSekolah;
+use App\Models\Berkas;
 use App\Models\ParentDb;
 use App\Models\Pendaftar;
 use Carbon\Carbon;
@@ -70,25 +71,44 @@ class AddPendaftarController extends Controller
 
         ]);
 
+        $files = ['ijazah', 'pasFoto', 'kartuKeluarga', 'aktaKelahiran'];
+        $rulesBerkas = [
+            'ijazah' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'pasFoto' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'kartuKeluarga' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'aktaKelahiran' => 'required|image|mimes:jpeg,png,jpg|max:1024'
+        ];
+        $validatedBerkas = $request->validate($rulesBerkas);
+
+        $paths = [];
+
+        foreach ($files as $file) {
+            if ($request->hasFile($file) && $request->file($file)->isValid()) {
+                $paths[$file] = $request->file($file)->store('berkasPendaftar');
+            }
+        }
+
+        $validatedBerkas = array_merge($validatedBerkas, $paths);
+
         $tanggalLahir = Carbon::createFromFormat('d/m/Y', $validatedPendaftar['tanggalLahir'])->format('Y/m/d');
         $validatedPendaftar['tanggalLahir'] = $tanggalLahir;
 
 
 
-        DB::transaction(function () use ($validatedPendaftar, $validatedOrangTua, $validatedAsalSekolah) {
+        DB::transaction(function () use ($validatedPendaftar, $validatedOrangTua, $validatedAsalSekolah, $validatedBerkas) {
             $asalSekolah = AsalSekolah::create($validatedAsalSekolah);
             $orangTua = ParentDb::create($validatedOrangTua);
-
+            $berkas = Berkas::create($validatedBerkas);
             $pendaftar = array_merge($validatedPendaftar, [
                 'parent_dbs_id' => $orangTua->id,
-                'asalSekolah_id' => $asalSekolah->id
+                'asalSekolah_id' => $asalSekolah->id,
+                'berkas_id' => $berkas->id
             ]);
             Pendaftar::create($pendaftar);
         });
 
         return redirect('/addPendaftar')->with('succes', 'Data pendaftar berhasil ditambahkan!');
     }
-
     /**
      * Display the specified resource.
      */

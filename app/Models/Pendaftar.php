@@ -9,7 +9,7 @@ class Pendaftar extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    protected $with = ['parentDb', 'asalSekolah'];
+    protected $with = ['parentDb', 'asalSekolah', 'berkas'];
 
 
     public function scopeFilter($query, array $filters)

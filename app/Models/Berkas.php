@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Berkas extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
     public function pendaftar()
     {
         return $this->belongsTo(Pendaftar::class, 'id', 'berkas_id');

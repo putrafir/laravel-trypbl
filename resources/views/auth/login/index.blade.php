@@ -64,7 +64,7 @@
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                 <input type="email" name="email" id="email"
                                     class="@error('email') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                    placeholder="name@company.com" required value="{{ old('email') }}" />
+                                    placeholder="youremail@gmail.com" required value="{{ old('email') }}" />
                                 @error('email')
                                     <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span
                                             class="font-medium">{{ $message }}</p>
@@ -74,7 +74,7 @@
                                 <label for="password"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                                     password</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••"
+                                <input type="password" name="password" id="password" placeholder="******"
                                     class="@error('password') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     required />
                                 @error('password')

@@ -91,8 +91,8 @@
                             @endif
                             <th scope="row"
                                 class="flex items-center px-6 py-4  text-dark whitespace-nowrap dark:text-white">
-                                <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg"
-                                    alt="Jese image">
+                                <img class="w-10 h-10 rounded-full object-cover"
+                                    src="{{ asset('storage/' . $pendaftar->berkas->pasFoto) }}" alt="Jese image">
                                 <div class="ps-3">
                                     <div class="text-base font-semibold">{{ $pendaftar->namaLengkap }}</div>
                                     <div class="font-normal text-gray-500">{{ $pendaftar->email }}</div>

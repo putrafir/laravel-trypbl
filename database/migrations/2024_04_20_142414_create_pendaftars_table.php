@@ -26,10 +26,10 @@ return new class extends Migration
             $table->string('telepon');
             $table->unsignedBigInteger('parent_dbs_id');
             $table->unsignedBigInteger('asalSekolah_id');
-            // $table->unsignedBigInteger('berkas_id');
+            $table->unsignedBigInteger('berkas_id');
             $table->foreign('parent_dbs_id')->references('id')->on('parent_dbs');
             $table->foreign('asalSekolah_id')->references('id')->on('asal_sekolahs');
-            // $table->foreign('berkas_id')->references('id')->on('berkas');
+            $table->foreign('berkas_id')->references('id')->on('berkas');
             $table->boolean('isAccepted')->default(false);
             $table->timestamps();
         });
