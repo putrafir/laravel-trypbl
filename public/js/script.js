@@ -50,3 +50,22 @@ function toggle(source) {
         checkboxes[i].checked = source.checked;
     }
 }
+
+// reject modal
+function showModal() {
+    document.getElementById("confirmationModal").classList.remove("hidden");
+}
+
+function closeModal() {
+    document.getElementById("confirmationModal").classList.add("hidden");
+}
+
+function confirmReject() {
+    document.getElementById("rejectForm").submit();
+}
+
+window.onclick = function (event) {
+    if (event.target == document.getElementById("confirmationModal")) {
+        closeModal();
+    }
+};

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         AsalSekolah::factory(20)->create();
         ParentDb::factory(20)->create();
-        Berkas::factory(20)->create();
+        // Berkas::factory(20)->create();
         Pendaftar::factory(20)->create();
         // User::factory()->create([
         //     'name' => 'Test User',

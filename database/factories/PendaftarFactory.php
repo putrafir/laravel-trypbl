@@ -30,7 +30,7 @@ class PendaftarFactory extends Factory
             'telepon' => fake()->phoneNumber(),
             'parent_dbs_id' => fake()->unique()->numberBetween(1, 20),
             'asalSekolah_id' => fake()->numberBetween(1, 20),
-            'berkas_id' => fake()->numberBetween(1, 20)
+            'berkas_id' => fake()->numberBetween(1, 2)
         ];
     }
 }
