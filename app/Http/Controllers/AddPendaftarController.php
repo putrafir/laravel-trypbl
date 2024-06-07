@@ -9,6 +9,8 @@ use App\Models\Pendaftar;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+use Illuminate\Support\Facades\Storage;
 
 class AddPendaftarController extends Controller
 {
@@ -79,6 +81,8 @@ class AddPendaftarController extends Controller
             'aktaKelahiran' => 'required|image|mimes:jpeg,png,jpg|max:1024'
         ];
         $validatedBerkas = $request->validate($rulesBerkas);
+
+
 
         $paths = [];
 

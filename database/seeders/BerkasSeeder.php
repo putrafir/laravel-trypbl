@@ -15,3 +15,4 @@ class BerkasSeeder extends Seeder
         //
     }
 }
+ 

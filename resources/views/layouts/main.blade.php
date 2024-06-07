@@ -26,9 +26,9 @@
 
     <!-- javascript -->
     {{-- <script src="js/dashboard.js"></script> --}}
-    <script src="{{ asset('js/script-nav.js') }}"></script>
     <script src="{{ asset('js/flowbite.min.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     <script>
         document.getElementById('dropdownDefaultButton').addEventListener('click', function() {
