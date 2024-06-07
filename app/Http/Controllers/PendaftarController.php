@@ -43,6 +43,10 @@ class PendaftarController extends Controller
     {
         $ids = $request->input('ids');
 
+        if (empty($ids)) {
+            return redirect()->route('pendaftar.index')->with('warning', 'silahkan pilih terlebih dahulu pendaftar yang ingin diterima');
+        }
+
         $pendaftars = Pendaftar::whereIn('id', $ids)->get();
 
         Pendaftar::whereIn('id', $ids)->update(['isAccepted' => true]);
@@ -98,6 +102,6 @@ class PendaftarController extends Controller
     {
         Pendaftar::destroy($pendaftar->id);
 
-        return redirect()->route('pendaftar.index')->with('deleted', $pendaftar->namaLengkap . ' Telah ditolak');
+        return redirect()->route('pendaftar.index')->with('warning', $pendaftar->namaLengkap . ' Telah ditolak');
     }
 }

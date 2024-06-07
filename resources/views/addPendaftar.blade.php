@@ -399,6 +399,11 @@
                                         class="flex justify-center my-3 text-sm font-medium">Pilih
                                         File</label>
                                 </div>
+                                @error('pasFoto')
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                        <span class="font-medium">{{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="pt-4">
                                 <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">KARTU
@@ -412,6 +417,11 @@
                                         class="flex justify-center my-3 text-sm font-medium">Pilih
                                         File</label>
                                 </div>
+                                @error('kartuKeluarga')
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                        <span class="font-medium">{{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="pt-4">
                                 <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">AKTA
@@ -425,6 +435,11 @@
                                         class="flex justify-center my-3 text-sm font-medium">Pilih
                                         File</label>
                                 </div>
+                                @error('aktaKelahiran')
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                        <span class="font-medium">{{ $message }}
+                                    </p>
+                                @enderror
                             </div>
 
 

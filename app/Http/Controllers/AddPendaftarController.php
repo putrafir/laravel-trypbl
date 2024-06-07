@@ -63,7 +63,7 @@ class AddPendaftarController extends Controller
             'teleponIbu' => 'required',
             'alamatIbu' => 'required',
             'usiaIbu' => 'required'
-        ]);
+    ]);
 
         $validatedAsalSekolah = $request->validate([
             'provinsiSMP' => 'required',
@@ -75,10 +75,10 @@ class AddPendaftarController extends Controller
 
         $files = ['ijazah', 'pasFoto', 'kartuKeluarga', 'aktaKelahiran'];
         $rulesBerkas = [
-            'ijazah' => 'required|image|mimes:jpeg,png,jpg|max:1024',
-            'pasFoto' => 'required|image|mimes:jpeg,png,jpg|max:1024',
-            'kartuKeluarga' => 'required|image|mimes:jpeg,png,jpg|max:1024',
-            'aktaKelahiran' => 'required|image|mimes:jpeg,png,jpg|max:1024'
+            'ijazah' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            'pasFoto' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            'kartuKeluarga' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            'aktaKelahiran' => 'required|image|mimes:jpeg,png,jpg|max:10240'
         ];
         $validatedBerkas = $request->validate($rulesBerkas);
 
