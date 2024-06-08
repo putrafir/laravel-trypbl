@@ -21,8 +21,7 @@
                 <hr class="pb-4 border-t-2 border-secondary opacity-25" />
                 <div class="contentBox px-6">
                     @include('partials.alert.succesAlert')
-                    <form class="max-w-sm mt-6 pb-7" method="POST"
-                        action="{{ route('diterima.update', $pendaftar->nisn) }}">
+                    <form class=" mt-6 pb-7" method="POST" action="{{ route('diterima.update', $pendaftar->nisn) }}">
                         @method('put')
                         @csrf
                         <!-- Data diri -->
@@ -376,68 +375,191 @@
                             </div>
                         </div>
                         <!-- Berkas -->
-                        <div class="content ml-4 text-dark" id="berkas">
-                            <div class="pt-4">
-                                <label class="block mb-2 text-sm font-medium text-gray-900">IJAZAH/SKL
-                                    SMP</label>
-                                <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" id="berkas"
-                                    name="ijazah"
-                                    class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                    id="file_input" type="file" />
-                                <div
-                                    class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
-                                    <label for="file_input" type="file"
-                                        class="flex justify-center my-3 text-sm font-medium">Pilih
-                                        File</label>
+                        <div class="content  text-dark" id="berkas">
+                            <div class="grid grid-cols-2 px-20 gap-8">
+                                <div class="relative bg-white shadow-lg border rounded-xl">
+                                    <h2 class="flex justify-center my-8 font-semibold">
+                                        IJAZAH/SKL SMP
+                                    </h2>
+
+                                    {{-- preview image --}}
+                                    @if ($pendaftar->berkas->ijazah)
+                                        <img src="{{ asset('storage/' . $pendaftar->berkas->ijazah) }}"
+                                            class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @else
+                                        <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @endif
+
+                                    <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="ijazah"
+                                        id="image1"
+                                        class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 1)" />
+                                    <div
+                                        class=" absolute w-[113px] h-[38px] ml-[60px] -mt-[50px] text-white bg-blue-500 rounded-l-lg  cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pt-4">
-                                <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">PAS
-                                    FOTO</label>
-                                <input type="file" accept=".jpg, .jpeg, .png" id="foto" name="pasFoto"
-                                    class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                    id="file_input" type="file" />
-                                <div
-                                    class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
-                                    <label for="file_input" type="file"
-                                        class="flex justify-center my-3 text-sm font-medium">Pilih
-                                        File</label>
+                                <div class="relative bg-white shadow-lg border rounded-xl">
+                                    <h2 class="flex justify-center my-8 font-semibold">
+                                        PAS FOTO
+                                    </h2>
+                                    {{-- preview image --}}
+                                    @if ($pendaftar->berkas->pasFoto)
+                                        <img src="{{ asset('storage/' . $pendaftar->berkas->pasFoto) }}"
+                                            class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @else
+                                        <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @endif
+
+                                    <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="pasFoto"
+                                        id="image2"
+                                        class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 2)" />
+                                    <div
+                                        class=" absolute w-[113px] h-[38px] ml-[60px] -mt-[50px] text-white bg-blue-500 rounded-l-lg  cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pt-4">
-                                <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">KARTU
-                                    KELUARGA</label>
-                                <input type="file" accept=".jpg, .jpeg, .png" id="foto" name="kartuKeluarga"
-                                    class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                    id="file_input" type="file" />
-                                <div
-                                    class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
-                                    <label for="file_input" type="file"
-                                        class="flex justify-center my-3 text-sm font-medium">Pilih
-                                        File</label>
+                                <div class="relative bg-white shadow-lg border rounded-xl">
+                                    <h2 class="flex justify-center my-8 font-semibold">
+                                        KARTU KELUARGA
+                                    </h2>
+                                    {{-- preview image --}}
+                                    @if ($pendaftar->berkas->kartuKeluarga)
+                                        <img src="{{ asset('storage/' . $pendaftar->berkas->kartuKeluarga) }}"
+                                            class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @else
+                                        <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @endif
+                                    <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="kartuKeluarga"
+                                        id="image3"
+                                        class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 3)" />
+                                    <div
+                                        class=" absolute w-[113px] h-[38px] ml-[60px] -mt-[50px] text-white bg-blue-500 rounded-l-lg  cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pt-4">
-                                <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">AKTA
-                                    KELAHIRAN</label>
-                                <input type="file" accept=".jpg, .jpeg, .png" id="foto" name="aktaKelahiran"
-                                    class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                    id="file_input" type="file" />
-                                <div
-                                    class="w-[114px] h-[43px] -ml-[1.26rem] text-white absolute rounded-l-lg bg-blueFist -mt-[42.8px] cursor-pointer overflow-hidden">
-                                    <label for="file_input" type="file"
-                                        class="flex justify-center my-3 text-sm font-medium">Pilih
-                                        File</label>
+                                <div class="relative bg-white shadow-lg border rounded-xl">
+                                    <h2 class="flex justify-center my-8 font-semibold">
+                                        AKTA KELAHIRAN
+                                    </h2>
+                                    {{-- preview image --}}
+                                    @if ($pendaftar->berkas->aktaKelahiran)
+                                        <img src="{{ asset('storage/' . $pendaftar->berkas->aktaKelahiran) }}"
+                                            class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @else
+                                        <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                            id="img-preview-1">
+                                    @endif
+                                    <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="aktaKelahiran"
+                                        id="image4"
+                                        class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 4)" />
+                                    <div
+                                        class=" absolute w-[113px] h-[38px] ml-[60px] -mt-[50px] text-white bg-blue-500 rounded-l-lg  cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
                                 </div>
+
+                                {{-- <div class="pt-4 w-72 ">
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">IJAZAH/SKL SMP</label>
+                                    <img class="img-preview flex ml-5 img-fluid mb-2 w-80 h-72 rounded-lg border"
+                                        id="img-preview-1">
+                                    <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="ijazah"
+                                        id="image1"
+                                        class="block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 1)" />
+                                    <div
+                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
+                                    @error('ijazah')
+                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}</span>
+                                        </p>
+                                    @enderror
+                                </div>
+                                <div class="pt-4 w-96">
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">PAS FOTO</label>
+                                    <img class="img-preview img-fluid mb-2 w-80 h-72 rounded-lg border"
+                                        id="img-preview-2">
+                                    <input type="file" accept=".jpg, .jpeg, .png" id="image2" name="pasFoto"
+                                        class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 2)" />
+                                    <div
+                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
+                                    @error('pasFoto')
+                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}</span>
+                                        </p>
+                                    @enderror
+                                </div>
+                                <div class="pt-4 w-96">
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">KARTU KELUARGA</label>
+                                    <img class="img-preview img-fluid mb-2 w-80 h-72 rounded-lg border"
+                                        id="img-preview-3">
+                                    <input type="file" accept=".jpg, .jpeg, .png" id="image3" name="kartuKeluarga"
+                                        class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 3)" />
+                                    <div
+                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
+                                    @error('kartuKeluarga')
+                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}</span>
+                                        </p>
+                                    @enderror
+                                </div>
+                                <div class="pt-4 w-96">
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">AKTA KELAHIRAN</label>
+                                    <img class="img-preview img-fluid mb-2 w-80 h-72 rounded-lg border"
+                                        id="img-preview-4">
+                                    <input type="file" accept=".jpg, .jpeg, .png" id="image4" name="aktaKelahiran"
+                                        class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                        onchange="previewImage(event, 4)" />
+                                    <div
+                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
+                                        <label for="image1"
+                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
+                                            File</label>
+                                    </div>
+                                    @error('aktaKelahiran')
+                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}</span>
+                                        </p>
+                                    @enderror
+                                </div> --}}
                             </div>
 
-
-                            <button name="update" type="submit"
-                                class="block mt-6 mx-[40%] text-white bg-blueFist hover:bg-bluSecond focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Update
+                            <button name="upload" type="submit"
+                                class="block mx-[45%] mb-8 mt-12 text-white bg-blueFist hover:bg-bluSecond focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Upload
                             </button>
-
-
 
                         </div>
 
@@ -446,29 +568,4 @@
             </div>
         </div>
     </main>
-    <script>
-        // Script untuk mengaktifkan tab dan mengatur lebar garis indikator
-        const tabs = document.querySelectorAll("button[data-target]");
-        const allContent = document.querySelectorAll(".content");
-
-        tabs.forEach((tab, index) => {
-            tab.addEventListener("click", (e) => {
-                tabs.forEach((tab) => {
-                    tab.classList.remove("active");
-                });
-
-                tab.classList.add("active");
-
-                var line = document.querySelector(".line");
-                line.style.width = e.target.offsetWidth + "px";
-                line.style.left = e.target.offsetLeft + "px";
-
-                allContent.forEach((content) => {
-                    content.classList.remove("active");
-                });
-                const target = tab.getAttribute("data-target");
-                document.getElementById(target).classList.add("active");
-            });
-        });
-    </script>
 @endsection

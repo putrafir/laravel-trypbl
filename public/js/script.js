@@ -69,3 +69,18 @@ window.onclick = function (event) {
         closeModal();
     }
 };
+
+// preview image input
+function previewImage(event, index) {
+    const image = event.target;
+    const imagePreview = document.querySelector("#img-preview-" + index);
+
+    imagePreview.style.display = "block";
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function (oFREvent) {
+        imagePreview.src = oFREvent.target.result;
+    };
+}
