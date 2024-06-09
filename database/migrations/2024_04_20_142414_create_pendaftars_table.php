@@ -31,6 +31,7 @@ return new class extends Migration
             $table->foreign('asalSekolah_id')->references('id')->on('asal_sekolahs');
             $table->foreign('berkas_id')->references('id')->on('berkas');
             $table->boolean('isAccepted')->default(false);
+            $table->timestamp('accepted_at')->nullable();
             $table->timestamps();
         });
     }

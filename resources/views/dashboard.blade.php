@@ -22,7 +22,7 @@
                         <h2 class="font-semibold text-secondary text-[1.3rem]">
                             Pendaftar
                         </h2>
-                        <h1 class="text-2xl font-bold pt-1">367</h1>
+                        <h1 class="text-2xl font-bold pt-1">{{ $jumlahPendaftar }}</h1>
                     </div>
 
                     <div class="lg:w-1/2 pl-20 pt-4">
@@ -53,9 +53,9 @@
 
                     <div class="text-lg -mt-7">
                         <h5 class="pl-5 pr-3 float-left font-medium text-green-400">
-                            +43%
+                            +{{ $pendaftarHariIni }}
                         </h5>
-                        <p class="ml-5 text-secondary font-light">sejak minggu lalu</p>
+                        <p class="ml-5 text-secondary font-light">bertambah hari ini</p>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                         <h2 class="font-semibold text-secondary text-[1.3rem]">
                             Diterima
                         </h2>
-                        <h1 class="text-2xl font-bold pt-1">265</h1>
+                        <h1 class="text-2xl font-bold pt-1">{{ $jumlahDiterima }}</h1>
                     </div>
 
                     <div class="lg:w-1/2 pl-20 pt-4">
@@ -102,14 +102,14 @@
                     </div>
 
                     <div class="text-lg -mt-6 flex flex-wrap">
-                        <h5 class="pl-5 pr-3 font-medium text-green-400">+53%</h5>
-                        <p class="text-secondary font-light">sejak kemarin</p>
+                        <h5 class="pl-5 pr-3 font-medium text-green-400">+{{ $pendaftarDiterimaHariIni }}</h5>
+                        <p class="text-secondary font-light">diterima hari ini</p>
                     </div>
                 </div>
 
                 <!-- kolom 3 -->
             </div>
-            <div class="w-[19rem] h-[11rem] bg-white rounded-2xl shadow-lg flex flex-wrap mt-8">
+            {{-- <div class="w-[19rem] h-[11rem] bg-white rounded-2xl shadow-lg flex flex-wrap mt-8">
                 <div class="w-full h-full flex flex-wrap">
                     <div class="p-5 lg:w-1/2">
                         <h2 class="font-semibold text-secondary text-[1.3rem]">
@@ -152,7 +152,7 @@
                         <p class="ml-5 text-secondary font-light">sejak minggu lalu</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- konten bawah -->

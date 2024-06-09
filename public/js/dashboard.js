@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
                                         (a, b) => {
                                             return a + b;
                                         },
-                                        0
+                                        0,
                                     );
                                     return `${sum}`;
                                 },
@@ -97,13 +97,13 @@ window.addEventListener("load", function () {
     ) {
         const chart = new ApexCharts(
             document.getElementById("donut-chart"),
-            getChartOptions()
+            getChartOptions(),
         );
         chart.render();
 
         // Get all the checkboxes by their class name
         const checkboxes = document.querySelectorAll(
-            '#devices input[type="checkbox"]'
+            '#devices input[type="checkbox"]',
         );
 
         // Function to handle the checkbox change event
@@ -111,7 +111,7 @@ window.addEventListener("load", function () {
         // Attach the event listener to each checkbox
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener("change", (event) =>
-                handleCheckboxChange(event, chart)
+                handleCheckboxChange(event, chart),
             );
         });
     }
@@ -217,7 +217,7 @@ window.addEventListener("load", function () {
     ) {
         const chart = new ApexCharts(
             document.getElementById("labels-chart"),
-            options
+            options,
         );
         chart.render();
     }
@@ -298,7 +298,7 @@ window.addEventListener("load", function () {
     ) {
         var chart = new ApexCharts(
             document.querySelector("#radial-chart"),
-            getChartOptions()
+            getChartOptions(),
         );
         chart.render();
     }

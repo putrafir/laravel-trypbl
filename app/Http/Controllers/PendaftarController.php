@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePendaftarRequest;
 use App\Http\Requests\UpdatePendaftarRequest;
 use App\Models\Pendaftar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use function Laravel\Prompts\search;
@@ -49,7 +50,7 @@ class PendaftarController extends Controller
 
         $pendaftars = Pendaftar::whereIn('id', $ids)->get();
 
-        Pendaftar::whereIn('id', $ids)->update(['isAccepted' => true]);
+        Pendaftar::whereIn('id', $ids)->update(['isAccepted' => true, 'accepted_at' => Carbon::now()]);
 
         $acceptedNames = $pendaftars->pluck('namaLengkap')->toArray();
         $message = implode(', ', $acceptedNames) . ' telah diterima';
