@@ -322,7 +322,7 @@
                                     <div class="mb-5">
                                         <label class="block mb-2 text-sm font-medium">Provinsi SMP</label>
                                         <input value="{{ old('provinsiSMP') }}" id="provinsiSMP" name="provinsiSMP"
-                                            type="text" autocomplete="off"
+                                            type="text"
                                             class="@error('provinsiSMP') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
                                         @error('provinsiSMP')
                                             <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
@@ -374,8 +374,16 @@
                                     <h2 class="flex justify-center my-8 font-semibold">
                                         IJAZAH/SKL SMP
                                     </h2>
-                                    <img class="img-preview mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                    @error('ijazah')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
+                                    <img class="img-preview  object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
                                         id="img-preview-1">
+
+
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="ijazah"
                                         id="image1"
                                         class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
@@ -385,13 +393,21 @@
                                         <label for="image1"
                                             class="flex justify-center items-center h-full text-sm font-medium">Pilih
                                             File</label>
+
                                     </div>
+
                                 </div>
                                 <div class="relative bg-white shadow-lg border rounded-xl">
                                     <h2 class="flex justify-center my-8 font-semibold">
                                         PAS FOTO
                                     </h2>
-                                    <img class="img-preview mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                    @error('pasFoto')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
+                                    <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
                                         id="img-preview-2">
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="pasFoto"
                                         id="image2"
@@ -408,7 +424,13 @@
                                     <h2 class="flex justify-center my-8 font-semibold">
                                         KARTU KELUARGA
                                     </h2>
-                                    <img class="img-preview mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                    @error('kartuKeluarga')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
+                                    <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
                                         id="img-preview-3">
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="kartuKeluarga"
                                         id="image3"
@@ -425,7 +447,13 @@
                                     <h2 class="flex justify-center my-8 font-semibold">
                                         AKTA KELAHIRAN
                                     </h2>
-                                    <img class="img-preview mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
+                                    @error('aktaKelahiran')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
+                                    <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
                                         id="img-preview-4">
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="aktaKelahiran"
                                         id="image4"
@@ -439,83 +467,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="pt-4 w-72 ">
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">IJAZAH/SKL SMP</label>
-                                    <img class="img-preview flex ml-5 img-fluid mb-2 w-80 h-72 rounded-lg border"
-                                        id="img-preview-1">
-                                    <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="ijazah"
-                                        id="image1"
-                                        class="block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                        onchange="previewImage(event, 1)" />
-                                    <div
-                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
-                                        <label for="image1"
-                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
-                                            File</label>
-                                    </div>
-                                    @error('ijazah')
-                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
-                                            <span class="font-medium">{{ $message }}</span>
-                                        </p>
-                                    @enderror
-                                </div>
-                                <div class="pt-4 w-96">
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">PAS FOTO</label>
-                                    <img class="img-preview img-fluid mb-2 w-80 h-72 rounded-lg border"
-                                        id="img-preview-2">
-                                    <input type="file" accept=".jpg, .jpeg, .png" id="image2" name="pasFoto"
-                                        class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                        onchange="previewImage(event, 2)" />
-                                    <div
-                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
-                                        <label for="image1"
-                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
-                                            File</label>
-                                    </div>
-                                    @error('pasFoto')
-                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
-                                            <span class="font-medium">{{ $message }}</span>
-                                        </p>
-                                    @enderror
-                                </div>
-                                <div class="pt-4 w-96">
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">KARTU KELUARGA</label>
-                                    <img class="img-preview img-fluid mb-2 w-80 h-72 rounded-lg border"
-                                        id="img-preview-3">
-                                    <input type="file" accept=".jpg, .jpeg, .png" id="image3" name="kartuKeluarga"
-                                        class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                        onchange="previewImage(event, 3)" />
-                                    <div
-                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
-                                        <label for="image1"
-                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
-                                            File</label>
-                                    </div>
-                                    @error('kartuKeluarga')
-                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
-                                            <span class="font-medium">{{ $message }}</span>
-                                        </p>
-                                    @enderror
-                                </div>
-                                <div class="pt-4 w-96">
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">AKTA KELAHIRAN</label>
-                                    <img class="img-preview img-fluid mb-2 w-80 h-72 rounded-lg border"
-                                        id="img-preview-4">
-                                    <input type="file" accept=".jpg, .jpeg, .png" id="image4" name="aktaKelahiran"
-                                        class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                                        onchange="previewImage(event, 4)" />
-                                    <div
-                                        class="absolute w-[113px] h-[43px] -ml-[19px] text-white bg-blue-500 rounded-l-lg -mt-[43px] cursor-pointer overflow-hidden">
-                                        <label for="image1"
-                                            class="flex justify-center items-center h-full text-sm font-medium">Pilih
-                                            File</label>
-                                    </div>
-                                    @error('aktaKelahiran')
-                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
-                                            <span class="font-medium">{{ $message }}</span>
-                                        </p>
-                                    @enderror
-                                </div> --}}
+
                             </div>
 
                             <button name="upload" type="submit"

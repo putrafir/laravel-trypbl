@@ -21,7 +21,8 @@
                 <hr class="pb-4 border-t-2 border-secondary opacity-25" />
                 <div class="contentBox px-6">
                     @include('partials.alert.succesAlert')
-                    <form class=" mt-6 pb-7" method="POST" action="{{ route('diterima.update', $pendaftar->nisn) }}">
+                    <form class=" mt-6 pb-7" method="POST" action="{{ route('diterima.update', $pendaftar->nisn) }}".
+                        enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <!-- Data diri -->
@@ -382,6 +383,12 @@
                                         IJAZAH/SKL SMP
                                     </h2>
 
+                                    @error('ijazah')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
                                     {{-- preview image --}}
                                     @if ($pendaftar->berkas->ijazah)
                                         <img src="{{ asset('storage/' . $pendaftar->berkas->ijazah) }}"
@@ -392,6 +399,9 @@
                                             id="img-preview-1">
                                     @endif
 
+                                    <input type="hidden" name="current_ijazah"
+                                        value="{{ $pendaftar->berkas->ijazah ?? '' }}">
+
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="ijazah"
                                         id="image1"
                                         class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
@@ -401,21 +411,33 @@
                                         <label for="image1"
                                             class="flex justify-center items-center h-full text-sm font-medium">Pilih
                                             File</label>
+
                                     </div>
                                 </div>
                                 <div class="relative bg-white shadow-lg border rounded-xl">
                                     <h2 class="flex justify-center my-8 font-semibold">
                                         PAS FOTO
                                     </h2>
+
+                                    @error('pasFoto')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
+
                                     {{-- preview image --}}
                                     @if ($pendaftar->berkas->pasFoto)
                                         <img src="{{ asset('storage/' . $pendaftar->berkas->pasFoto) }}"
                                             class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
-                                            id="img-preview-1">
+                                            id="img-preview-2">
                                     @else
                                         <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
-                                            id="img-preview-1">
+                                            id="img-preview-2">
                                     @endif
+
+                                    <input type="hidden" name="current_pasFoto"
+                                        value="{{ $pendaftar->berkas->pasFoto ?? '' }}">
 
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="pasFoto"
                                         id="image2"
@@ -427,20 +449,31 @@
                                             class="flex justify-center items-center h-full text-sm font-medium">Pilih
                                             File</label>
                                     </div>
+
                                 </div>
                                 <div class="relative bg-white shadow-lg border rounded-xl">
                                     <h2 class="flex justify-center my-8 font-semibold">
                                         KARTU KELUARGA
                                     </h2>
+                                    @error('kartuKeluarga')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
                                     {{-- preview image --}}
                                     @if ($pendaftar->berkas->kartuKeluarga)
                                         <img src="{{ asset('storage/' . $pendaftar->berkas->kartuKeluarga) }}"
                                             class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
-                                            id="img-preview-1">
+                                            id="img-preview-3">
                                     @else
                                         <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
-                                            id="img-preview-1">
+                                            id="img-preview-3">
                                     @endif
+
+                                    <input type="hidden" name="current_kartuKeluarga"
+                                        value="{{ $pendaftar->berkas->kartuKeluarga ?? '' }}">
+
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="kartuKeluarga"
                                         id="image3"
                                         class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
@@ -456,15 +489,25 @@
                                     <h2 class="flex justify-center my-8 font-semibold">
                                         AKTA KELAHIRAN
                                     </h2>
+                                    @error('aktaKelahiran')
+                                        <p id="outlined_error_help"
+                                            class="flex justify-center mb-1 text-xs text-red-600 dark:text-red-400">
+                                            <span class="font-medium">{{ $message }}
+                                        </p>
+                                    @enderror
                                     {{-- preview image --}}
                                     @if ($pendaftar->berkas->aktaKelahiran)
                                         <img src="{{ asset('storage/' . $pendaftar->berkas->aktaKelahiran) }}"
                                             class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
-                                            id="img-preview-1">
+                                            id="img-preview-4">
                                     @else
                                         <img class="img-preview object-cover mx-[3.2rem] flex  img-fluid mb-2 w-[20rem] h-52 rounded-lg border"
-                                            id="img-preview-1">
+                                            id="img-preview-4">
                                     @endif
+
+                                    <input type="hidden" name="current_aktaKelahiran"
+                                        value="{{ $pendaftar->berkas->aktaKelahiran ?? '' }}">
+
                                     <input type="file" accept=".pdf,.docx, .png, .jpg, .jpeg" name="aktaKelahiran"
                                         id="image4"
                                         class=" ml-[5rem] my-3 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"

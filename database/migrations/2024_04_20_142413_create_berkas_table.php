@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('berkas', function (Blueprint $table) {
             $table->id();
-            $table->string('ijazah');
-            $table->string('pasFoto');
-            $table->string('kartuKeluarga');
-            $table->string('aktaKelahiran');
+            $table->string('ijazah')->nullable();
+            $table->string('pasFoto')->nullable();
+            $table->string('kartuKeluarga')->nullable();
+            $table->string('aktaKelahiran')->nullable();
             $table->timestamps();
         });
     }

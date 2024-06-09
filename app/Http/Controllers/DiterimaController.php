@@ -7,6 +7,7 @@ use App\Models\Pendaftar;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DiterimaController extends Controller
 {
@@ -124,13 +125,42 @@ class DiterimaController extends Controller
 
             ]
         );
+
+
+        $files = ['ijazah', 'pasFoto', 'kartuKeluarga', 'aktaKelahiran'];
+        $rulesBerkas = [
+            'ijazah' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
+            'pasFoto' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
+            'kartuKeluarga' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
+            'aktaKelahiran' => 'nullable|image|mimes:jpeg,png,jpg|max:10240'
+        ];
+
+        $validatedBerkas = $request->validate($rulesBerkas);
+
+        $paths = [];
+
+        foreach ($files as $file) {
+            if ($request->hasFile($file) && $request->file($file)->isValid()) {
+                if ($request->input("current_$file")) {
+                    Storage::delete($request->input("current_$file"));
+                }
+                $paths[$file] = $request->file($file)->store('berkasPendaftar');
+            } else {
+                $paths[$file] = $request->input("current_$file");
+            }
+        }
+
+        $validatedBerkas = array_merge($validatedBerkas, $paths);
+
         $tanggalLahir = Carbon::createFromFormat('d/m/Y', $validatedPendaftar['tanggalLahir'])->format('Y/m/d');
         $validatedPendaftar['tanggalLahir'] = $tanggalLahir;
 
-        DB::transaction(function () use ($pendaftar, $validatedPendaftar, $validatedOrangTua, $validatedAsalSekolah) {
+        DB::transaction(function () use ($pendaftar, $validatedPendaftar, $validatedOrangTua, $validatedAsalSekolah, $validatedBerkas) {
             $pendaftar->asalSekolah()->update($validatedAsalSekolah);
 
             $pendaftar->parentDb()->update($validatedOrangTua);
+
+            $pendaftar->berkas()->update($validatedBerkas);
 
             $pendaftar->update($validatedPendaftar);
         });

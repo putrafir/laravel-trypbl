@@ -5,7 +5,6 @@
     <div class="w-full h-[26rem] min-h-75 bg-blueFist">
 
     </div>
-
     <!-- Side samping -->
 
     <!-- konten -->

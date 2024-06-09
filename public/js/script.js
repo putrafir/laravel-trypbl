@@ -70,6 +70,25 @@ window.onclick = function (event) {
     }
 };
 
+// logout Modal
+function showModalLogout() {
+    document.getElementById("confirmLogoutModal").classList.remove("hidden");
+}
+
+function closeModalLogout() {
+    document.getElementById("confirmLogoutModal").classList.add("hidden");
+}
+
+function confirmLogout() {
+    document.getElementById("logOutForm").submit();
+}
+
+window.onclick = function (event) {
+    if (event.target == document.getElementById("confirmLogOutModal")) {
+        closeModal();
+    }
+};
+
 // preview image input
 function previewImage(event, index) {
     const image = event.target;
