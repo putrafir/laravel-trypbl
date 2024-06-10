@@ -18,7 +18,7 @@ class AsalSekolahFactory extends Factory
     {
         return [
             'provinsiSMP' => fake()->state(),
-            'asalSMP' => fake()->company(),
+            'asalSMP' => 'MTS Miftahul Ulum',
             'kotaSMP' => fake()->city(),
             'alamatSMP' => fake()->address(),
 
