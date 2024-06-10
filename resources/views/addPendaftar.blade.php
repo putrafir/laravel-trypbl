@@ -353,6 +353,44 @@
                                             </p>
                                         @enderror
                                     </div>
+                                    {{-- <div class="mb-5">
+                                        <label class="block mb-2 text-sm font-medium">Asal SMP</label>
+                                        <select id="asalSMP_select"
+                                            class="@error('asalSMP_select') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="asalSMP_select" onchange="toggleCustomInput()">
+                                            <option value=""{{ old('asalSMP_select') == '' ? 'selected' : '' }}
+                                                selected>
+                                                Pilih
+                                                Asal SMP
+                                            </option>
+                                            <option value="MTS Miftahul Ulum"
+                                                {{ old('asalSMP_select') == 'MTS Miftahul Ulum' ? 'selected' : '' }}>MTS
+                                                Miftahul
+                                                Ulum
+                                            </option>
+                                            <option value="lainnya"
+                                                {{ old('asalSMP_select') == 'lainnya' ? 'selected' : '' }}>
+                                                Lainnya
+                                            </option>
+                                        </select>
+
+                                        <div id="customInputDiv" class="mt-4 hidden">
+                                            <label class="block mb-2 text-sm font-medium">Masukkan Asal SMP</label>
+                                            <input value="{{ old('asalSMP') }}" type="text" id="customAsalSMP"
+                                                name="asalSMP"
+                                                class="@error('asalSMP') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                                        </div>
+
+                                        <input type="hidden" id="asalSMP" name="asalSMP"
+                                            value="{{ old('asalSMP') }}">
+
+                                        @error('asalSMP')
+                                            <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+                                                <span class="font-medium">{{ $message }}
+                                            </p>
+                                        @enderror
+
+                                    </div> --}}
                                     <div class="mb-5">
                                         <label class="block mb-2 text-sm font-medium">Alamat SMP</label>
                                         <input value="{{ old('alamatSMP') }}" type="text" id="alamat"

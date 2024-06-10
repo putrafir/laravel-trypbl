@@ -103,3 +103,31 @@ function previewImage(event, index) {
         imagePreview.src = oFREvent.target.result;
     };
 }
+
+// dropdown input custom
+function toggleCustomInput() {
+    var select = document.getElementById("asalSMP_select");
+    var customInputDiv = document.getElementById("customInputDiv");
+    if (select.value === "lainnya") {
+        customInputDiv.classList.remove("hidden");
+    } else {
+        customInputDiv.classList.add("hidden");
+    }
+}
+
+function handleSubmit(event) {
+    var select = document.getElementById("asalSMP_select");
+    var customInput = document.getElementById("customAsalSMP");
+    var hiddenInput = document.getElementById("asalSMP");
+
+    if (select.value === "lainnya") {
+        hiddenInput.value = customInput.value;
+    } else {
+        hiddenInput.value = select.value;
+    }
+}
+
+// Call the function on page load to handle the case when the form is reloaded with an error
+window.onload = function () {
+    toggleCustomInput();
+};

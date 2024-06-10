@@ -63,7 +63,13 @@ class AddPendaftarController extends Controller
             'teleponIbu' => 'required',
             'alamatIbu' => 'required',
             'usiaIbu' => 'required'
-    ]);
+        ]);
+
+
+        // $asalSMP_select = $request->input('asalSMP_select');
+        // $asalSMP = ($asalSMP_select === 'lainnya') ? $request->input('asalSMP') : $asalSMP_select;
+
+
 
         $validatedAsalSekolah = $request->validate([
             'provinsiSMP' => 'required',
