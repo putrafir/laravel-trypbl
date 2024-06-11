@@ -5,7 +5,7 @@
         <div class="w-full h-full bg-blueFist opacity bg-opacity-50"></div>
     </div>
 
-    </div>
+
 
 
     <!-- konten -->

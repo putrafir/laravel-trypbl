@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DiterimaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PendaftarController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,3 +39,5 @@ Route::prefix('accepted')->group(function () {
 
 
 Route::resource('/addPendaftar', AddPendaftarController::class)->middleware('auth');
+
+Route::resource('profile', ProfileController::class)->middleware('auth');
