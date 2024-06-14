@@ -97,6 +97,7 @@
                                 <div class="ps-3">
                                     <div class="text-base font-semibold">{{ $pendaftar->namaLengkap }}</div>
                                     <div class="font-normal text-gray-500">{{ $pendaftar->email }}</div>
+
                                 </div>
                             </th>
                             <td class="px-6 py-4">

@@ -17,6 +17,7 @@ class PendaftarController extends Controller
      */
     public function index()
     {
+
         $search = request('search');
         $pendaftars = Pendaftar::where('isAccepted', false)->latest()->filter(request(['search']))->get();
         $searchMessage = null;

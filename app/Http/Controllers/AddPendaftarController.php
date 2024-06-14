@@ -89,7 +89,6 @@ class AddPendaftarController extends Controller
         $validatedBerkas = $request->validate($rulesBerkas);
 
 
-
         $paths = [];
 
         foreach ($files as $file) {

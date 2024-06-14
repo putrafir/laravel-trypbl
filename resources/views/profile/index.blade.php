@@ -44,6 +44,20 @@
                         <h5 class=" text-xl font-medium text-gray-900 dark:text-white">{{ $user->name }}</h5>
                         <span class="text-sm text-gray-500 dark:text-gray-400">{{ $user->email }}</span>
                     </div>
+
+                </div>
+                <div class="flex pr-4">
+                    <div class="group ">
+                        <a href="{{ route('profile.edit', $user) }}" onclick="changeColor()"
+                            class="pr-3 pl-2 py-2 h-10 text-xs font-medium bg-orange-400 hover:bg-orange-500 text-white text-center inline-flex items-center rounded-xl">
+                            <svg id="myIcon" width="24" height="24" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path id="myPath" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.0096 7.75789C18.4001 8.14841 18.4001 8.78158 18.0096 9.1721L10.9396 16.2421C10.7521 16.4296 10.4977 16.535 10.2325 16.535C9.96729 16.535 9.71294 16.4296 9.5254 16.2421L5.9904 12.7071C5.59988 12.3166 5.59988 11.6834 5.9904 11.2929C6.38093 10.9024 7.01409 10.9024 7.40462 11.2929L10.2325 14.1208L16.5954 7.75789C16.9859 7.36737 17.6191 7.36737 18.0096 7.75789Z" />
+                            </svg>
+                            <span id="myButtonText"> Edit </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,11 +139,7 @@
 
 
     </main>
-    {{-- <script>
-        document.querySelector('.fa-camera').addEventListener('click', function() {
-            document.querySelector('.file-input').click();
-        });
-    </script> --}}
+
     <script>
         const profilePicture = document.getElementById('profile-picture');
         const fileInput = document.getElementById('file-input');

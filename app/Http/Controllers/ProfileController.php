@@ -49,7 +49,10 @@ class ProfileController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('profile.edit', [
+            'title' => 'Edit',
+            'user' => User::all()->first()
+        ]);
     }
 
     /**
@@ -57,7 +60,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        dd($request);
     }
 
     /**
