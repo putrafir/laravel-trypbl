@@ -14,6 +14,7 @@
 
         </div>
 
+
         <script>
             document.querySelector('.fa-camera').addEventListener('click', function() {
                 document.querySelector('.file-input').click();

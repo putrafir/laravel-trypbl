@@ -43,7 +43,7 @@
                                     <label for="name"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                         Name</label>
-                                    <input value="{{ old('name') }}" type="name" name="name" id="name"
+                                    <input value="{{ old('name') }}" type="name" name="namaLengkap" id="name"
                                         class="@error('name') border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                         placeholder="Your name" required />
                                     @error('name')

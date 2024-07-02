@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -58,9 +59,45 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        dd($request);
+        $user = User::all()->first();
+
+        $rules = [
+            'namaLengkap' => 'required|max:255',
+            'jabatan' => 'nullable',
+            'alamat' => 'nullable',
+            'nomorTelepon' => 'nullable',
+            'profileImage' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
+
+        ];
+
+
+        if ($request->username != $user->username) {
+            $rules['username'] = 'required|min:3|max:255|unique:users,username';
+        } else {
+            $rules['username'] = 'required';
+        }
+
+        if ($request->email != $user->email) {
+            $rules['email'] = 'required|email:dns|unique:users,email';
+        } else {
+            $rules['email'] = 'required|email:dns';
+        }
+
+        $validated = $request->validate($rules);
+
+        if ($request->file('profileImage')) {
+            if ($request->oldProfileImage) {
+                Storage::delete($request->oldProfileImage);
+            }
+            $validated['profileImage'] = $request->file('profileImage')->store('profileAdmin');
+        }
+
+        User::where('id', $user->id)->update($validated);
+
+
+        return redirect()->route('profile.index')->with('pop_up', 'Data diri anda berhasil di update');
     }
 
     /**

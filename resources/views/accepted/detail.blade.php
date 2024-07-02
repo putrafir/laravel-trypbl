@@ -5,8 +5,7 @@
         <div class="w-full h-full bg-blueFist opacity bg-opacity-50"></div>
     </div>
 
-
-
+    @include('partials.alert.succesAlert')
 
     <!-- konten -->
     <main class="-mt-[390px] ml-80 h-full max-h-screen">

@@ -165,7 +165,7 @@ class DiterimaController extends Controller
             $pendaftar->update($validatedPendaftar);
         });
 
-        return redirect()->route('diterima.show', $pendaftar->nisn)->with('succes', $pendaftar->nisn . ' Berhasil di update');
+        return redirect()->route('diterima.show', $pendaftar->nisn)->with('pop_up', 'Data diri ' . $pendaftar->namaLengkap . ' Berhasil di update');
     }
 
 
